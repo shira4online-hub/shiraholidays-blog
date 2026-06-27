@@ -54,7 +54,7 @@
     .drop {
       display: none;
       position: absolute; top: 100%; right: 0;
-      margin-top: 4px;
+      
       background: #fff;
       border-radius: 14px;
       box-shadow: 0 8px 40px rgba(26,26,46,0.13);
@@ -63,7 +63,7 @@
       padding: 6px;
       z-index: 200;
     }
-    .nav-item.open .drop { display: block; }
+    .nav-item:hover .drop, .nav-item.open .drop { display: block; }
     .drop a {
       display: flex; align-items: center; gap: 10px;
       padding: 10px 12px; border-radius: 9px;
@@ -72,7 +72,7 @@
       transition: background 0.15s;
     }
     .drop a:hover { background: var(--cream2); color: var(--coral) !important; }
-    .drop a.soon { opacity: 0.38; pointer-events: none; }
+    .drop a.soon { opacity: .55; }
     .drop .soon-badge {
       margin-right: auto; font-size: 10px;
       background: var(--cream2); color: var(--muted);
@@ -347,10 +347,10 @@
         <div class="drop">
           <a href="/hotels/greece.html">🇬🇷 מלונות ביוון</a>
           <hr>
-          <a href="#" class="soon">🇹🇭 מלונות בתאילנד <span class="soon-badge">בקרוב</span></a>
-          <a href="#" class="soon">🇮🇩 מלונות באינדונזיה <span class="soon-badge">בקרוב</span></a>
-          <a href="#" class="soon">🇯🇵 מלונות ביפן <span class="soon-badge">בקרוב</span></a>
-          <a href="#" class="soon">🇦🇪 מלונות בדובאי <span class="soon-badge">בקרוב</span></a>
+          <a href="/hotels/thailand.html" class="soon">🇹🇭 מלונות בתאילנד <span class="soon-badge">בקרוב</span></a>
+          <a href="/hotels/bali.html" class="soon">🇮🇩 מלונות באינדונזיה <span class="soon-badge">בקרוב</span></a>
+          <a href="/hotels/japan.html" class="soon">🇯🇵 מלונות ביפן <span class="soon-badge">בקרוב</span></a>
+          <a href="/hotels/dubai.html" class="soon">🇦🇪 מלונות בדובאי <span class="soon-badge">בקרוב</span></a>
         </div>
       </div>
 
