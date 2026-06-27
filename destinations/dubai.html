@@ -15,8 +15,8 @@
     .nav-links>a:hover,.nav-item>a:hover{color:var(--dark);background:var(--cream2)}
     .nav-item{position:relative}.nav-item>a{display:flex;align-items:center;gap:4px;cursor:pointer}
     .nav-item>a .arrow{font-size:9px;transition:transform .2s}.nav-item:hover>a .arrow{transform:rotate(180deg)}
-    .drop{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#fff;border-radius:14px;box-shadow:0 8px 40px rgba(26,26,46,.13);border:1px solid var(--border);min-width:200px;padding:6px;z-index:200}
-    .nav-item:hover .drop{display:block}
+    .drop{display:none;position:absolute;top:100%;padding-top:6px;right:0;background:#fff;border-radius:14px;box-shadow:0 8px 40px rgba(26,26,46,.13);border:1px solid var(--border);min-width:200px;padding:6px;z-index:200}
+    .nav-item.open .drop{display:block}
     .drop a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;color:var(--dark)!important;font-size:14px!important;white-space:nowrap;transition:background .15s}
     .drop a:hover{background:var(--cream2)}.drop a.soon{opacity:.38;pointer-events:none}
     .drop .soon-badge{margin-right:auto;font-size:10px;background:var(--cream2);color:var(--muted);padding:2px 7px;border-radius:100px}
@@ -116,5 +116,26 @@
 </div></footer>
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navDrawer').classList.toggle('open')});</script>
 <script src="/assets/js/site.js"></script>
+<script>
+(function(){
+  var items = document.querySelectorAll('.nav-item');
+  items.forEach(function(item){
+    var trigger = item.querySelector('a');
+    if (!trigger) return;
+    trigger.addEventListener('click', function(e){
+      if (!item.querySelector('.drop')) return;
+      e.preventDefault();
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(i){ i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(e){
+    if (!e.target.closest || !e.target.closest('.nav-item')){
+      items.forEach(function(i){ i.classList.remove('open'); });
+    }
+  });
+})();
+</script>
 </body>
 </html>
