@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>דובאי | Shira Holidays</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{font-family:'Heebo',sans-serif;background:#FDFAF5;color:#1A1A2E}a{text-decoration:none}img{display:block;max-width:100%}
+    :root{--coral:#E8603A;--dark:#1A1A2E;--cream:#FDFAF5;--cream2:#F5F0E8;--muted:rgba(26,26,46,0.5);--border:rgba(26,26,46,0.08)}
+    .nav{position:sticky;top:0;z-index:100;background:rgba(253,250,245,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .nav-logo{font-size:20px;font-weight:900;color:var(--dark)}.nav-logo span{color:var(--coral)}
+    .nav-links{display:flex;gap:4px;align-items:center}
+    .nav-links>a,.nav-item>a{color:var(--muted);font-size:15px;padding:6px 12px;border-radius:8px;transition:all .2s}
+    .nav-links>a:hover,.nav-item>a:hover{color:var(--dark);background:var(--cream2)}
+    .nav-item{position:relative}.nav-item>a{display:flex;align-items:center;gap:4px;cursor:pointer}
+    .nav-item>a .arrow{font-size:9px;transition:transform .2s}.nav-item:hover>a .arrow{transform:rotate(180deg)}
+    .drop{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#fff;border-radius:14px;box-shadow:0 8px 40px rgba(26,26,46,.13);border:1px solid var(--border);min-width:200px;padding:6px;z-index:200}
+    .nav-item:hover .drop{display:block}
+    .drop a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;color:var(--dark)!important;font-size:14px!important;white-space:nowrap;transition:background .15s}
+    .drop a:hover{background:var(--cream2)}.drop a.soon{opacity:.38;pointer-events:none}
+    .drop .soon-badge{margin-right:auto;font-size:10px;background:var(--cream2);color:var(--muted);padding:2px 7px;border-radius:100px}
+    .drop hr{border:none;border-top:1px solid var(--border);margin:4px 0}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px}
+    .nav-drawer{display:none;position:fixed;inset:62px 0 0 0;background:var(--cream);z-index:99;flex-direction:column;padding:32px 24px;border-top:1px solid var(--border);overflow-y:auto}
+    .nav-drawer.open{display:flex}.nav-drawer a{font-size:18px;font-weight:700;color:var(--dark);padding:14px 0;border-bottom:1px solid var(--border)}
+    .nav-drawer .drawer-section{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:2px;text-transform:uppercase;padding:16px 0 6px}
+    .nav-drawer .drawer-item{font-size:16px;font-weight:400;padding:10px 0 10px 12px}
+    .dest-hero{position:relative;height:52vh;min-height:320px;display:flex;align-items:flex-end;overflow:hidden}
+    .dest-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+    .dest-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,.85) 0%,rgba(26,26,46,.2) 60%,transparent 100%)}
+    .dest-hero-content{position:relative;z-index:2;width:100%;max-width:1120px;margin:0 auto;padding:0 24px 40px}
+    .dest-flag{font-size:48px;margin-bottom:12px}.dest-title{font-size:clamp(40px,6vw,72px);font-weight:900;color:#fff;letter-spacing:-2px;line-height:1}
+    .dest-sub{color:rgba(255,255,255,.65);font-size:16px;font-weight:300;margin-top:10px}
+    .page-inner{max-width:1120px;margin:0 auto;padding:80px 24px;text-align:center}
+    .coming-big{font-size:72px;margin-bottom:24px}
+    .coming-title{font-size:36px;font-weight:900;color:var(--dark);margin-bottom:12px}
+    .coming-sub{font-size:18px;color:var(--muted);font-weight:300;max-width:480px;margin:0 auto 40px}
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;max-width:900px;margin:0 auto}
+    .card-soon{background:var(--cream2);border:1.5px dashed rgba(26,26,46,.12);border-radius:20px}
+    .card-soon .card-body{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 20px;text-align:center}
+    .card-soon .soon-icon{font-size:32px;margin-bottom:10px}
+    .card-title{font-size:15px;font-weight:700;color:var(--dark);line-height:1.3;margin-bottom:8px}
+    .card-soon-badge{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);background:rgba(26,26,46,.06);padding:4px 12px;border-radius:100px}
+    footer{background:var(--dark);color:#fff;padding:48px 24px;margin-top:80px}
+    .footer-inner{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .footer-logo{font-size:18px;font-weight:900}.footer-logo span{color:var(--coral)}
+    .footer-links{display:flex;gap:20px}.footer-links a{color:rgba(255,255,255,.5);font-size:13px}.footer-links a:hover{color:#fff}
+    .footer-copy{color:rgba(255,255,255,.25);font-size:12px;width:100%;text-align:center;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}
+  </style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a href="/index.html" class="nav-logo">שירה<span>הולידייז</span></a>
+  <div class="nav-links">
+    <a href="/index.html">ראשי</a>
+    <div class="nav-item"><a href="/index.html#destinations">יעדים <span class="arrow">▾</span></a>
+      <div class="drop">
+        <a href="/destinations/greece.html">🇬🇷 יוון</a>
+        <a href="/destinations/thailand.html">🇹🇭 תאילנד</a>
+        <a href="/destinations/bali.html">🇮🇩 אינדונזיה / באלי</a>
+        <a href="/destinations/puglia.html">🇮🇹 דרום איטליה</a>
+        <a href="/destinations/dubai.html" style="color:var(--coral)!important;">🇦🇪 דובאי</a>
+        <a href="/destinations/dubai.html">🇦🇪 דובאי</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="#">מלונות <span class="arrow">▾</span></a>
+      <div class="drop"><a href="/hotels/greece.html">🇬🇷 מלונות ביוון</a><hr>
+        <a href="#" class="soon">🇦🇪 מלונות בדובאי <span class="soon-badge">בקרוב</span></a>
+      </div>
+    </div>
+    <a href="/about.html">מי אנחנו</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="תפריט"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="/index.html">ראשי</a>
+  <span class="drawer-section">יעדים</span>
+  <a href="/destinations/greece.html" class="drawer-item">🇬🇷 יוון</a>
+  <a href="/destinations/thailand.html" class="drawer-item">🇹🇭 תאילנד</a>
+  <a href="/destinations/bali.html" class="drawer-item">🇮🇩 אינדונזיה / באלי</a>
+  <a href="/destinations/puglia.html" class="drawer-item">🇮🇹 דרום איטליה</a>
+  <a href="/destinations/dubai.html" class="drawer-item" style="color:var(--coral);">🇦🇪 דובאי</a>
+  <a href="/destinations/dubai.html" class="drawer-item">🇦🇪 דובאי</a>
+  <a href="/about.html">מי אנחנו</a>
+</div>
+
+<div class="dest-hero">
+  <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=80" alt="דובאי">
+  <div class="dest-hero-overlay"></div>
+  <div class="dest-hero-content">
+    <div class="dest-flag">🇦🇪</div>
+    <h1 class="dest-title">דובאי</h1>
+    <p class="dest-sub">מרינה · דאונטאון · ג'בל עלי · רמת אל-כחיל</p>
+  </div>
+</div>
+
+<div class="page-inner">
+  <div class="coming-big">🏙️</div>
+  <h2 class="coming-title">כתבות דובאי — בדרך</h2>
+  <p class="coming-sub">עובדים על מדריכים מעמיקים לדובאי. בינתיים, הנה מה שמתוכנן:</p>
+  <div class="cards-grid">
+    <div class="card-soon"><div class="card-body"><div class="soon-icon">🏙️</div><h3 class="card-title">10 ימים בדובאי — המסלול שעובד</h3><span class="card-soon-badge">בקרוב</span></div></div>
+    <div class="card-soon"><div class="card-body"><div class="soon-icon">👨‍👩‍👧</div><h3 class="card-title">דובאי עם ילדים — מה כייף ומה לא שווה</h3><span class="card-soon-badge">בקרוב</span></div></div>
+    <div class="card-soon"><div class="card-body"><div class="soon-icon">🏨</div><h3 class="card-title">המלונות הטובים ביותר בדובאי</h3><span class="card-soon-badge">בקרוב</span></div></div>
+    <div class="card-soon"><div class="card-body"><div class="soon-icon">🏜️</div><h3 class="card-title">ספארי מדבר — המדריך המלא</h3><span class="card-soon-badge">בקרוב</span></div></div>
+  </div>
+</div>
+
+<footer><div class="footer-inner">
+  <div class="footer-logo">שירה<span>הולידייז</span></div>
+  <div class="footer-links"><a href="/index.html">ראשי</a><a href="/about.html">מי אנחנו</a><a href="/privacy.html">פרטיות</a></div>
+  <p class="footer-copy">© 2026 Shira Holidays</p>
+</div></footer>
+<script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navDrawer').classList.toggle('open')});</script>
+<script src="/assets/js/site.js"></script>
+</body>
+</html>

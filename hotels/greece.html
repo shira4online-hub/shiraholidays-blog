@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מלונות ביוון | Shira Holidays</title>
+  <meta name="description" content="מלונות ביוון לפי אזור — סנטוריני, מיקונוס, כרתים, קורפו, רודוס, מילוס ופארוס. המלצות אמיתיות.">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{font-family:'Heebo',sans-serif;background:#FDFAF5;color:#1A1A2E}a{text-decoration:none}img{display:block;max-width:100%}
+    :root{--coral:#E8603A;--dark:#1A1A2E;--cream:#FDFAF5;--cream2:#F5F0E8;--muted:rgba(26,26,46,0.5);--border:rgba(26,26,46,0.08)}
+    .nav{position:sticky;top:0;z-index:100;background:rgba(253,250,245,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:62px}
+    .nav-logo{font-size:20px;font-weight:900;color:var(--dark)}.nav-logo span{color:var(--coral)}
+    .nav-links{display:flex;gap:4px;align-items:center}
+    .nav-links>a,.nav-item>a{color:var(--muted);font-size:15px;padding:6px 12px;border-radius:8px;transition:all .2s}
+    .nav-links>a:hover,.nav-item>a:hover{color:var(--dark);background:var(--cream2)}
+    .nav-item{position:relative}.nav-item>a{display:flex;align-items:center;gap:4px;cursor:pointer}
+    .nav-item>a .arrow{font-size:9px;transition:transform .2s}.nav-item:hover>a .arrow{transform:rotate(180deg)}
+    .drop{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#fff;border-radius:14px;box-shadow:0 8px 40px rgba(26,26,46,.13);border:1px solid var(--border);min-width:200px;padding:6px;z-index:200}
+    .nav-item:hover .drop{display:block}
+    .drop a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;color:var(--dark)!important;font-size:14px!important;white-space:nowrap;transition:background .15s}
+    .drop a:hover{background:var(--cream2)}.drop a.soon{opacity:.38;pointer-events:none}
+    .drop .soon-badge{margin-right:auto;font-size:10px;background:var(--cream2);color:var(--muted);padding:2px 7px;border-radius:100px}
+    .drop hr{border:none;border-top:1px solid var(--border);margin:4px 0}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px}
+    .nav-drawer{display:none;position:fixed;inset:62px 0 0 0;background:var(--cream);z-index:99;flex-direction:column;padding:32px 24px;border-top:1px solid var(--border);overflow-y:auto}
+    .nav-drawer.open{display:flex}.nav-drawer a{font-size:18px;font-weight:700;color:var(--dark);padding:14px 0;border-bottom:1px solid var(--border)}
+    .nav-drawer .drawer-section{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:2px;text-transform:uppercase;padding:16px 0 6px}
+    .nav-drawer .drawer-item{font-size:16px;font-weight:400;padding:10px 0 10px 12px}
+
+    /* PAGE HEADER */
+    .page-header{background:var(--dark);padding:56px 24px 48px;text-align:center}
+    .page-header .flag{font-size:40px;margin-bottom:16px}
+    .page-header h1{font-size:clamp(32px,5vw,56px);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+    .page-header p{color:rgba(255,255,255,.55);font-size:16px;font-weight:300}
+    .breadcrumb{display:flex;gap:8px;align-items:center;justify-content:center;margin-bottom:20px;font-size:13px;color:rgba(255,255,255,.4)}
+    .breadcrumb a{color:rgba(255,255,255,.5)}.breadcrumb a:hover{color:#fff}
+
+    /* LOCATIONS GRID */
+    .page-inner{max-width:1120px;margin:0 auto;padding:64px 24px}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+    .section-title{font-size:28px;font-weight:900;color:var(--dark);margin-bottom:8px}
+    .section-sub{font-size:15px;color:var(--muted);font-weight:300;margin-bottom:40px}
+
+    .locations-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+    .loc-card{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:3/4;display:block;color:#fff;transition:transform .25s,box-shadow .25s}
+    .loc-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(26,26,46,.2)}
+    .loc-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .loc-card:hover img{transform:scale(1.07)}
+    .loc-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,.85) 0%,rgba(26,26,46,.1) 55%,transparent 100%)}
+    .loc-card-body{position:absolute;bottom:0;right:0;left:0;padding:20px}
+    .loc-name{font-size:20px;font-weight:900;letter-spacing:-0.5px;margin-bottom:4px}
+    .loc-desc{font-size:12px;color:rgba(255,255,255,.6);font-weight:300;line-height:1.4;margin-bottom:12px}
+    .loc-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px}
+    .loc-badge.available{background:var(--coral);color:#fff}
+    .loc-badge.soon{background:rgba(255,255,255,.15);color:rgba(255,255,255,.7)}
+
+    /* RELATED */
+    .related{background:var(--cream2);border-radius:24px;padding:40px;margin-top:64px;text-align:center}
+    .related h2{font-size:22px;font-weight:900;color:var(--dark);margin-bottom:8px}
+    .related p{color:var(--muted);font-size:14px;font-weight:300;margin-bottom:24px}
+    .related-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-outline{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--dark);color:var(--dark);font-weight:700;font-size:13px;padding:10px 20px;border-radius:100px;transition:all .2s}
+    .btn-outline:hover{background:var(--dark);color:#fff}
+
+    footer{background:var(--dark);color:#fff;padding:48px 24px;margin-top:80px}
+    .footer-inner{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .footer-logo{font-size:18px;font-weight:900}.footer-logo span{color:var(--coral)}
+    .footer-links{display:flex;gap:20px}.footer-links a{color:rgba(255,255,255,.5);font-size:13px}.footer-links a:hover{color:#fff}
+    .footer-copy{color:rgba(255,255,255,.25);font-size:12px;width:100%;text-align:center;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.locations-grid{grid-template-columns:repeat(2,1fr)}.loc-card{aspect-ratio:2/3}}
+  </style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a href="/index.html" class="nav-logo">שירה<span>הולידייז</span></a>
+  <div class="nav-links">
+    <a href="/index.html">ראשי</a>
+    <div class="nav-item"><a href="/index.html#destinations">יעדים <span class="arrow">▾</span></a>
+      <div class="drop">
+        <a href="/destinations/greece.html">🇬🇷 יוון</a>
+        <a href="/destinations/thailand.html">🇹🇭 תאילנד</a>
+        <a href="/destinations/bali.html">🇮🇩 אינדונזיה / באלי</a>
+        <a href="/destinations/puglia.html">🇮🇹 דרום איטליה</a>
+        <a href="/destinations/japan.html">🇯🇵 יפן</a>
+        <a href="/destinations/dubai.html">🇦🇪 דובאי</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="#" style="color:var(--coral)!important;">מלונות <span class="arrow">▾</span></a>
+      <div class="drop">
+        <a href="/hotels/greece.html" style="color:var(--coral)!important;">🇬🇷 מלונות ביוון</a><hr>
+        <a href="#" class="soon">🇹🇭 מלונות בתאילנד <span class="soon-badge">בקרוב</span></a>
+        <a href="#" class="soon">🇮🇩 מלונות באינדונזיה <span class="soon-badge">בקרוב</span></a>
+      </div>
+    </div>
+    <a href="/about.html">מי אנחנו</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="תפריט"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="/index.html">ראשי</a>
+  <span class="drawer-section">יעדים</span>
+  <a href="/destinations/greece.html" class="drawer-item">🇬🇷 יוון</a>
+  <a href="/destinations/thailand.html" class="drawer-item">🇹🇭 תאילנד</a>
+  <a href="/destinations/bali.html" class="drawer-item">🇮🇩 אינדונזיה / באלי</a>
+  <a href="/destinations/puglia.html" class="drawer-item">🇮🇹 דרום איטליה</a>
+  <a href="/destinations/japan.html" class="drawer-item">🇯🇵 יפן</a>
+  <a href="/destinations/dubai.html" class="drawer-item">🇦🇪 דובאי</a>
+  <span class="drawer-section">מלונות</span>
+  <a href="/hotels/greece.html" class="drawer-item" style="color:var(--coral);">🇬🇷 מלונות ביוון</a>
+  <a href="/about.html">מי אנחנו</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="/index.html">ראשי</a> / <a href="/destinations/greece.html">יוון</a> / מלונות
+  </div>
+  <div class="flag">🇬🇷</div>
+  <h1>מלונות ביוון</h1>
+  <p>בחרו אזור — נספר לכם איפה לישון</p>
+</div>
+
+<div class="page-inner">
+  <p class="section-label">לפי אזור</p>
+  <h2 class="section-title">באיזה אי / עיר אתם ישנים?</h2>
+  <p class="section-sub">לחצו על אזור לרשימת המלונות המומלצים שלנו</p>
+
+  <div class="locations-grid">
+
+    <a href="/articles/article-santorini-kids.html" class="loc-card">
+      <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80" alt="סנטוריני">
+      <div class="loc-card-overlay"></div>
+      <div class="loc-card-body">
+        <div class="loc-name">סנטוריני</div>
+        <div class="loc-desc">קלדרה, שקיעות וכחלבן</div>
+        <span class="loc-badge available">יש מידע ←</span>
+      </div>
+    </a>
+
+    <a href="#" class="loc-card">
+      <img src="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&q=80" alt="מיקונוס">
+      <div class="loc-card-overlay"></div>
+      <div class="loc-card-body">
+        <div class="loc-name">מיקונוס</div>
+        <div class="loc-desc">מסיבות, יאכטות ומסעדות</div>
+        <span class="loc-badge soon">בקרוב</span>
+      </div>
+    </a>
+
+    <a href="#" class="loc-card">
+      <img src="https://images.unsplash.com/photo-1548087351-22e6f8e1a4e8?w=600&q=80" alt="כרתים">
+      <div class="loc-card-overlay"></div>
+      <div class="loc-card-body">
+        <div class="loc-name">כרתים</div>
+        <div class="loc-desc">האי הגדול — חצי עיר, חצי טבע</div>
+        <span class="loc-badge soon">בקרוב</span>
+      </div>
+    </a>
+
+    <a href="#" class="loc-card">
+      <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&q=80" alt="קורפו">
+      <div class="loc-card-overlay"></div>
+      <div class="loc-card-body">
+        <div class="loc-name">קורפו</div>
+        <div class="loc-desc">יורו-ויב · חופים ירוקים</div>
+        <span class="loc-badge soon">בקרוב</span>
+      </div>
+    </a>
+
+    <a href="#" class="loc-card">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="רודוס">
+      <div class="loc-card-overlay"></div>
+      <div class="loc-card-body">
+        <div class="loc-name">רודוס</div>
+        <div class="loc-desc">עיר עתיקה + חופי all-inclusive</div>
+        <span class="loc-badge soon">בקרוב</span>
+      </div>
+    </a>
+
+    <a href="#" class="loc-card">
+      <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&q=80" alt="מילוס">
+      <div class="loc-card-overlay"></div>
+      <div class="loc-card-body">
+        <div class="loc-name">מילוס</div>
+        <div class="loc-desc">חופי לבה ושקט אמיתי</div>
+        <span class="loc-badge soon">בקרוב</span>
+      </div>
+    </a>
+
+    <a href="#" class="loc-card">
+      <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80" alt="פארוס">
+      <div class="loc-card-overlay"></div>
+      <div class="loc-card-body">
+        <div class="loc-name">פארוס</div>
+        <div class="loc-desc">ספורט מים + כפרים מדהימים</div>
+        <span class="loc-badge soon">בקרוב</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="related">
+    <h2>רוצים לראות את כל יוון?</h2>
+    <p>כתבות, מסלולים וטיפים — הכל במקום אחד</p>
+    <div class="related-links">
+      <a href="/destinations/greece.html" class="btn-outline">🇬🇷 כל הכתבות על יוון</a>
+      <a href="/articles/article-greece.html" class="btn-outline">📍 מסלול 10 ימים</a>
+      <a href="/articles/article-santorini-kids.html" class="btn-outline">👨‍👩‍👧 סנטוריני עם ילדים</a>
+    </div>
+  </div>
+</div>
+
+<footer><div class="footer-inner">
+  <div class="footer-logo">שירה<span>הולידייז</span></div>
+  <div class="footer-links"><a href="/index.html">ראשי</a><a href="/about.html">מי אנחנו</a><a href="/privacy.html">פרטיות</a></div>
+  <p class="footer-copy">© 2026 Shira Holidays</p>
+</div></footer>
+<script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navDrawer').classList.toggle('open')});</script>
+<script src="/assets/js/site.js"></script>
+</body>
+</html>
