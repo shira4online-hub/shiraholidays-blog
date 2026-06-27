@@ -1,5 +1,5 @@
 /* ===== Google Analytics (loads only after cookie consent) ===== */
-const GA_ID = 'G-XXXXXXXXXX'; // <-- החליפי עם ה-ID האמיתי שלך מ-Google Analytics
+const GA_ID = 'G-KZX8CX867M';
 
 function loadGA() {
   if (document.getElementById('ga-script')) return;
