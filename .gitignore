@@ -1,0 +1,8 @@
+# Video files — upload directly to SiteGround
+assets/videos/*.mp4
+assets/videos/*.mov
+assets/videos/*.webm
+
+# System files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מי אנחנו | Shira Holidays</title>
+  <meta name="description" content="שירה הולידייז — בלוג טיולים אישי של שירה, סוכנת נסיעות שכותבת כמו חברה טובה. המלצות מבוססות על חופשות אמיתיות." />
+  <meta property="og:title" content="מי אנחנו | Shira Holidays" />
+  <meta property="og:description" content="שירה הולידייז — בלוג טיולים אישי של שירה, סוכנת נסיעות שכותבת כמו חברה טובה." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --coral: #E8603A;
+      --dark: #1A1A2E;
+      --cream: #FDFAF5;
+      --cream2: #F5F0E8;
+    }
+    * { font-family: 'Heebo', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--dark); }
+    header { transition: transform 0.3s ease; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#FDFAF5]/95 backdrop-blur-md shadow-sm">
+    <div class="flex items-center justify-between px-6 md:px-12 py-4">
+      <a href="index.html" class="text-2xl font-black text-[#1A1A2E]">
+        שירה<span class="text-[#E8603A]">הולידייז</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-[#1A1A2E]/70 font-medium">
+        <a href="index.html#destinations" class="hover:text-[#E8603A] transition-colors">יעדים</a>
+        <span class="text-[#1A1A2E]/20">|</span>
+        <a href="index.html#articles" class="hover:text-[#E8603A] transition-colors">כתבות</a>
+        <span class="text-[#1A1A2E]/20">|</span>
+        <a href="#" class="hover:text-[#E8603A] transition-colors">מסלולים</a>
+        <span class="text-[#1A1A2E]/20">|</span>
+        <a href="about.html" class="text-[#E8603A] font-semibold">מי אנחנו</a>
+      </nav>
+      <button class="md:hidden text-[#1A1A2E]" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#FDFAF5] border-t border-[#1A1A2E]/10 px-6 py-4 space-y-3 text-sm font-medium">
+      <a href="index.html#destinations" class="block text-[#1A1A2E]/70 py-1">יעדים</a>
+      <a href="index.html#articles" class="block text-[#1A1A2E]/70 py-1">כתבות</a>
+      <a href="#" class="block text-[#1A1A2E]/70 py-1">מסלולים</a>
+      <a href="about.html" class="block text-[#E8603A] font-semibold py-1">מי אנחנו</a>
+    </div>
+  </header>
+
+  <main class="pt-16">
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-[#F5F0E8] py-20 md:py-28 px-6 md:px-12">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Text -->
+        <div>
+          <p class="text-[#E8603A] text-xs tracking-[0.3em] font-semibold uppercase mb-4">מי אנחנו</p>
+          <h1 class="text-4xl md:text-5xl font-black text-[#1A1A2E] leading-tight mb-6">
+            ההמלצה הכי טובה<br/>שתקבלו מחברה
+          </h1>
+          <p class="text-[#1A1A2E]/70 font-light text-lg leading-relaxed mb-6">
+            שירה הולידייז הוא בלוג טיולים שנכתב על ידי שירה — סוכנת נסיעות שסגרה מאות חופשות לזוגות ומשפחות, וכותבת עליהן כמו שחברה טובה הייתה מספרת: בלי שיווק מנופח, עם כל הפרטים שחשוב לדעת.
+          </p>
+          <p class="text-[#1A1A2E]/70 font-light text-lg leading-relaxed">
+            הסוד פשוט: כשמישהו שואל "לאן לנסוע?" — אנחנו עונים מניסיון אמיתי של מה שעבד ללקוחות שלנו, לא ממה שנשמע יפה בתיאוריה.
+          </p>
+        </div>
+        <!-- Image placeholder — ניתן להחליף בתמונה אמיתית -->
+        <div class="relative">
+          <div class="aspect-square rounded-3xl overflow-hidden bg-[#1A1A2E]/10 max-w-sm mx-auto">
+            <img
+              src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600&q=80"
+              alt="שירה הולידייז — טיולים בכל העולם"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <!-- Stat badge -->
+          <div class="absolute -bottom-4 -right-4 md:bottom-4 md:-left-6 bg-white rounded-2xl shadow-lg px-5 py-4 text-center">
+            <p class="text-3xl font-black text-[#E8603A]">300+</p>
+            <p class="text-xs font-medium text-[#1A1A2E]/60 mt-1">חופשות שנסגרו</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="py-20 px-6 md:px-12 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-black text-[#1A1A2E] mb-12 text-center">למה שירה הולידייז שונה</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center p-6">
+            <div class="text-4xl mb-4">✈️</div>
+            <h3 class="text-lg font-bold text-[#1A1A2E] mb-3">ניסיון מהשטח</h3>
+            <p class="text-[#1A1A2E]/60 font-light text-sm leading-relaxed">ההמלצות מבוססות על חופשות שנסגרו ללקוחות אמיתיים — לא על קריאת בלוגים אחרים.</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="text-4xl mb-4">💬</div>
+            <h3 class="text-lg font-bold text-[#1A1A2E] mb-3">כנות מעל הכל</h3>
+            <p class="text-[#1A1A2E]/60 font-light text-sm leading-relaxed">אם מקום לא מתאים לילדים, נגיד את זה. אם מלון מאכזב, לא נמליץ עליו. גם אם יש שם אפיליאציה.</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="text-4xl mb-4">🗺️</div>
+            <h3 class="text-lg font-bold text-[#1A1A2E] mb-3">פרטים מעשיים</h3>
+            <p class="text-[#1A1A2E]/60 font-light text-sm leading-relaxed">כמה זה עולה, מתי ללכת, מה לא לפספס, מה אפשר לוותר עליו. לא רק תמונות יפות.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destinations We Cover -->
+    <section class="py-20 px-6 md:px-12 bg-[#F5F0E8]">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-black text-[#1A1A2E] mb-4">היעדים שאנחנו מכסים</h2>
+        <p class="text-[#1A1A2E]/60 font-light mb-12 max-w-lg mx-auto">כרגע מתמקדים ב-6 יעדים שאנחנו מכירים הכי טוב — ומוסיפים עוד.</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <span class="px-5 py-2 bg-white rounded-full text-[#1A1A2E] font-medium text-sm shadow-sm">🇹🇭 תאילנד</span>
+          <span class="px-5 py-2 bg-white rounded-full text-[#1A1A2E] font-medium text-sm shadow-sm">🇯🇵 יפן</span>
+          <span class="px-5 py-2 bg-white rounded-full text-[#1A1A2E] font-medium text-sm shadow-sm">🇦🇪 דובאי</span>
+          <span class="px-5 py-2 bg-white rounded-full text-[#1A1A2E] font-medium text-sm shadow-sm">🇮🇩 אינדונזיה</span>
+          <span class="px-5 py-2 bg-white rounded-full text-[#1A1A2E] font-medium text-sm shadow-sm">🇮🇹 דרום איטליה</span>
+          <span class="px-5 py-2 bg-white rounded-full text-[#1A1A2E] font-medium text-sm shadow-sm">🇬🇷 יוון</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Affiliate Transparency -->
+    <section class="py-16 px-6 md:px-12 bg-white">
+      <div class="max-w-2xl mx-auto bg-[#F5F0E8] rounded-2xl p-8 md:p-10">
+        <h2 class="text-xl font-bold text-[#1A1A2E] mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-circle-info text-[#E8603A]"></i>
+          שקיפות בנושא אפיליאציה
+        </h2>
+        <p class="text-[#1A1A2E]/70 font-light leading-relaxed mb-3">
+          חלק מהקישורים באתר הם קישורי שיווק שותפים (אפיליאציה). כשאתם מזמינים דרכם, אנחנו מקבלים עמלה קטנה — ללא עלות נוספת מצדכם.
+        </p>
+        <p class="text-[#1A1A2E]/70 font-light leading-relaxed mb-3">
+          אנחנו שותפים של: <strong class="font-medium text-[#1A1A2E]">Booking.com, Airbnb, ו-Skyscanner.</strong>
+        </p>
+        <p class="text-[#1A1A2E]/70 font-light leading-relaxed">
+          ההכנסות מהאפיליאציה מממנות את כתיבת התוכן ותפעול האתר. הן אינן משפיעות על מה שאנחנו ממליצים עליו — ממליצים על מה שעובד, ותו לא.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-6 md:px-12 bg-[#F5F0E8]">
+      <div class="max-w-xl mx-auto text-center">
+        <p class="text-[#E8603A] text-xs tracking-[0.3em] font-semibold uppercase mb-4">יצירת קשר</p>
+        <h2 class="text-3xl font-black text-[#1A1A2E] mb-4">שאלה? המלצה? עסקים?</h2>
+        <p class="text-[#1A1A2E]/60 font-light mb-10 leading-relaxed">
+          רוצים להתייעץ לפני טיול, להציע שיתוף פעולה, או סתם להגיד שלום — כתבו לנו.
+        </p>
+
+        <!-- Contact Form -->
+        <form
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+          class="text-right space-y-4"
+        >
+          <div>
+            <label class="block text-sm font-medium text-[#1A1A2E] mb-1">שם</label>
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder="השם שלכם"
+              class="w-full px-4 py-3 rounded-xl border border-[#1A1A2E]/15 bg-white text-[#1A1A2E] placeholder-[#1A1A2E]/30 focus:outline-none focus:border-[#E8603A] transition-colors text-sm"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#1A1A2E] mb-1">אימייל</label>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="your@email.com"
+              class="w-full px-4 py-3 rounded-xl border border-[#1A1A2E]/15 bg-white text-[#1A1A2E] placeholder-[#1A1A2E]/30 focus:outline-none focus:border-[#E8603A] transition-colors text-sm"
+              dir="ltr"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#1A1A2E] mb-1">הודעה</label>
+            <textarea
+              name="message"
+              rows="4"
+              required
+              placeholder="כתבו לנו..."
+              class="w-full px-4 py-3 rounded-xl border border-[#1A1A2E]/15 bg-white text-[#1A1A2E] placeholder-[#1A1A2E]/30 focus:outline-none focus:border-[#E8603A] transition-colors text-sm resize-none"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full py-3 rounded-xl font-bold text-white transition-opacity hover:opacity-90 text-sm"
+            style="background:var(--coral);"
+          >
+            שליחה
+          </button>
+        </form>
+
+        <p class="mt-6 text-[#1A1A2E]/40 text-sm">
+          או ישירות לאימייל:
+          <a href="mailto:shira4online@gmail.com" class="text-[#E8603A] hover:underline">shira4online@gmail.com</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#1A1A2E] text-white py-14 px-6 md:px-12">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <h3 class="text-xl font-black mb-3">שירה<span style="color:var(--coral);">הולידייז</span></h3>
+        <p class="text-white/50 font-light text-sm leading-relaxed">טיולים שתזכרו לתמיד — מתחיל כאן.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-sm text-white/50 tracking-wider uppercase">ניווט</h4>
+        <ul class="space-y-2 text-white/70 font-light text-sm">
+          <li><a href="index.html#destinations" class="hover:text-white transition-colors">יעדים</a></li>
+          <li><a href="index.html#articles" class="hover:text-white transition-colors">כתבות</a></li>
+          <li><a href="about.html" class="hover:text-white transition-colors">מי אנחנו</a></li>
+          <li><a href="privacy.html" class="hover:text-white transition-colors">מדיניות פרטיות</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-sm text-white/50 tracking-wider uppercase">צור קשר</h4>
+        <p class="text-white/70 font-light text-sm">shira4online@gmail.com</p>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto pt-8 border-t border-white/10 text-center text-white/30 text-xs">
+      © 2026 שירה הולידייז. כל הזכויות שמורות.
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      let lastY = 0;
+      window.addEventListener('scroll', () => {
+        const nav = document.querySelector('header');
+        const y = window.scrollY;
+        nav.style.transform = (y > lastY && y > 100) ? 'translateY(-100%)' : 'translateY(0)';
+        lastY = y;
+      });
+    })();
+  </script>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

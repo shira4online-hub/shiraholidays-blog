@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שירה הולידייז | בלוג טיולים לזוגות ומשפחות</title>
+  <meta name="description" content="המלצות אמיתיות על מלונות, מסלולים להורדה וכתבות טיול — תאילנד, יוון, יפן, איטליה ואינדונזיה.">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Heebo', sans-serif; background: #FDFAF5; color: #1A1A2E; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── TOKENS ─── */
+    :root {
+      --coral:   #E8603A;
+      --dark:    #1A1A2E;
+      --cream:   #FDFAF5;
+      --cream2:  #F5F0E8;
+      --muted:   rgba(26,26,46,0.5);
+      --border:  rgba(26,26,46,0.08);
+    }
+
+    /* ─── NAVBAR ─── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(253,250,245,0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 62px;
+    }
+    .nav-logo { font-size: 20px; font-weight: 900; color: var(--dark); letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--coral); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: 15px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-links a.active { color: var(--coral); font-weight: 500; }
+
+    /* hamburger — mobile only */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--dark); border-radius: 2px; transition: all 0.25s; }
+
+    /* mobile nav drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed; inset: 62px 0 0 0;
+      background: var(--cream);
+      z-index: 99;
+      flex-direction: column;
+      padding: 32px 24px;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { font-size: 22px; font-weight: 700; color: var(--dark); padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .nav-drawer a.active { color: var(--coral); }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 100svh; min-height: 560px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center center;
+      z-index: 0;
+    }
+    /* fallback image if video not supported */
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top,
+        rgba(26,26,46,0.9) 0%,
+        rgba(26,26,46,0.35) 45%,
+        rgba(26,26,46,0.05) 75%,
+        transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px 56px;
+    }
+    .hero-eyebrow {
+      font-size: 12px; letter-spacing: 3px;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase; font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-size: clamp(44px, 7vw, 84px);
+      font-weight: 900; color: #fff;
+      line-height: 1; letter-spacing: -2.5px;
+      margin-bottom: 18px;
+    }
+    .hero-sub {
+      font-size: 16px; color: rgba(255,255,255,0.65);
+      font-weight: 300; line-height: 1.65;
+      max-width: 480px; margin-bottom: 32px;
+    }
+    .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--coral); color: #fff;
+      font-weight: 700; font-size: 15px;
+      padding: 13px 24px; border-radius: 3px;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.8); font-size: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.35);
+      padding-bottom: 2px;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 5px;
+    }
+    .hero-scroll span { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+    .hero-scroll-line { width: 1px; height: 26px; background: rgba(255,255,255,0.3); }
+
+    /* ─── SECTION SHARED ─── */
+    .section { padding: 72px 24px; }
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+    .section-header { margin-bottom: 36px; }
+    .section-header-row { display: flex; justify-content: space-between; align-items: baseline; }
+    .section-divider { width: 36px; height: 3px; background: var(--coral); border-radius: 2px; margin-bottom: 14px; }
+    .section-title { font-size: 26px; font-weight: 900; color: var(--dark); letter-spacing: -0.5px; margin-bottom: 6px; }
+    .section-sub { font-size: 15px; color: var(--muted); font-weight: 300; }
+    .section-link { font-size: 14px; color: var(--coral); font-weight: 500; white-space: nowrap; }
+    .tag { font-size: 11px; letter-spacing: 2.5px; color: var(--coral); text-transform: uppercase; font-weight: 500; margin-bottom: 9px; display: block; }
+
+    /* ─── DESTINATIONS FEED ─── */
+    .feed-bg { background: var(--cream); }
+    .feed-scroll {
+      display: flex; gap: 14px;
+      overflow-x: auto; padding-bottom: 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .feed-scroll::-webkit-scrollbar { height: 3px; }
+    .feed-scroll::-webkit-scrollbar-track { background: rgba(26,26,46,0.06); border-radius: 2px; }
+    .feed-scroll::-webkit-scrollbar-thumb { background: var(--coral); border-radius: 2px; }
+    .feed-item { flex: 0 0 260px; scroll-snap-align: start; }
+    .dest-card {
+      position: relative; overflow: hidden;
+      border-radius: 6px; height: 360px; cursor: pointer;
+    }
+    .dest-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .dest-card:hover img { transform: scale(1.06); }
+    .dest-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.82) 0%, rgba(26,26,46,0.08) 50%, transparent 100%);
+    }
+    .dest-card-label { position: absolute; bottom: 0; right: 0; left: 0; padding: 18px 20px; }
+    .dest-season { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.6); text-transform: uppercase; display: block; margin-bottom: 5px; }
+    .dest-name { font-size: 24px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+    .dest-cities { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 3px; font-weight: 300; }
+
+    /* ─── ARTICLES ─── */
+    .articles-bg { background: var(--cream2); }
+
+    /* Featured article */
+    .article-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .article-featured-img { height: 380px; overflow: hidden; }
+    .article-featured-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .article-featured:hover .article-featured-img img { transform: scale(1.03); }
+    .article-featured-body { padding: 40px 40px 40px 32px; display: flex; flex-direction: column; justify-content: center; }
+    .article-featured-title { font-size: 26px; font-weight: 700; color: var(--dark); line-height: 1.25; margin-bottom: 14px; letter-spacing: -0.3px; }
+    .article-featured-desc { font-size: 15px; color: var(--muted); line-height: 1.7; font-weight: 300; margin-bottom: 26px; }
+    .article-featured-link { color: var(--coral); font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
+
+    /* Small articles grid */
+    .articles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .article-card { cursor: pointer; }
+    .article-img { overflow: hidden; border-radius: 6px; margin-bottom: 14px; }
+    .article-img img { width: 100%; object-fit: cover; transition: transform 0.35s ease; }
+    .article-card:hover .article-img img { transform: scale(1.04); }
+    .article-title { font-size: 20px; font-weight: 700; color: var(--dark); line-height: 1.3; margin-bottom: 8px; }
+    .article-desc { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      position: relative; overflow: hidden;
+      min-height: 380px; display: flex; align-items: center;
+    }
+    .cta-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .cta-overlay { position: absolute; inset: 0; background: rgba(232,96,58,0.85); z-index: 1; }
+    .cta-inner {
+      position: relative; z-index: 2;
+      max-width: 1120px; margin: 0 auto;
+      padding: 72px 24px;
+      width: 100%;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 40px;
+    }
+    .cta-eyebrow { font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,0.65); font-weight: 500; text-transform: uppercase; margin-bottom: 12px; }
+    .cta-title { font-size: clamp(30px, 4.5vw, 50px); font-weight: 900; color: #fff; line-height: 1.05; margin-bottom: 16px; letter-spacing: -1.5px; }
+    .cta-desc { font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.65; font-weight: 300; max-width: 380px; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--coral); font-weight: 700; font-size: 15px; padding: 16px 32px; border-radius: 3px; white-space: nowrap; }
+
+    /* ─── FOOTER ─── */
+    .footer { background: var(--dark); padding: 44px 24px; }
+    .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+    .footer-logo { font-size: 19px; font-weight: 900; color: var(--cream); margin-bottom: 5px; }
+    .footer-logo span { color: var(--coral); }
+    .footer-tagline { font-size: 13px; color: rgba(253,250,245,0.3); font-weight: 300; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 14px; color: rgba(253,250,245,0.4); }
+    .footer-links a:hover { color: rgba(253,250,245,0.7); }
+    .footer-copy { font-size: 12px; color: rgba(253,250,245,0.18); }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+
+      /* Navbar */
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      /* Hero */
+      .hero-sub { font-size: 15px; }
+      .hero-content { padding-bottom: 48px; }
+      .btn-ghost { display: none; }
+
+      /* Destinations */
+      .section { padding: 56px 20px; }
+      .feed-item { flex: 0 0 220px; }
+      .dest-card { height: 300px; }
+
+      /* Featured article */
+      .article-featured { grid-template-columns: 1fr; }
+      .article-featured-img { height: 240px; }
+      .article-featured-body { padding: 24px; }
+      .article-featured-title { font-size: 21px; }
+
+      /* Articles grid */
+      .articles-grid { grid-template-columns: 1fr; }
+      .article-img img { height: 200px; }
+
+      /* CTA */
+      .cta-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+      .cta-title { font-size: 32px; }
+
+      /* About strip */
+      .about-strip-inner { flex-direction: column !important; gap: 32px !important; }
+      .about-strip-number { border-left: none !important; padding-left: 0 !important; border-bottom: 1px solid rgba(253,250,245,0.12); padding-bottom: 32px !important; }
+
+      /* Footer */
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { letter-spacing: -1.5px; }
+      .feed-item { flex: 0 0 200px; }
+      .section-header-row { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">שירה<span>הולידייז</span></a>
+    <div class="nav-links">
+      <a href="#" class="active">ראשי</a>
+      <a href="#">יעדים</a>
+      <a href="#">מסלולים</a>
+      <a href="#">טיפים</a>
+      <a href="#">מלונות</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="תפריט">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav drawer -->
+<div class="nav-drawer" id="navDrawer">
+  <a href="#" class="active">ראשי</a>
+  <a href="#">יעדים</a>
+  <a href="#">מסלולים</a>
+  <a href="#">טיפים</a>
+  <a href="#">מלונות</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <!-- Video background -->
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="assets/videos/intro.mp4" type="video/mp4">
+    <!-- Fallback image if video not supported -->
+    <img class="hero-bg"
+         src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=1800&auto=format&fit=crop&q=85"
+         alt="יוון — ים תכלת וגגות לבנים">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">בלוג טיולים · זוגות ומשפחות</p>
+    <h1 class="hero-title">טיולים שתזכרו<br>לתמיד —<br>מתחיל כאן.</h1>
+    <p class="hero-sub">המלצות אמיתיות על יעדים, מלונות שנבדקו ומסלולים מוכנים — הכל כדי שתגיעו רגועים ותחזרו עם חיוך.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">לכל היעדים ←</a>
+      <a href="#" class="btn-ghost">מסלולים להורדה</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>גללו</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT STRIP ═══ -->
+<section style="background: #F5F0E8; padding: 88px 24px;">
+  <div style="max-width: 640px; margin: 0 auto; text-align: center;">
+
+    <!-- Decorative quote mark -->
+    <div style="font-size: 96px; line-height: 0.5; color: #E8603A; opacity: 0.2; font-family: Georgia, serif; margin-bottom: 36px; direction: ltr;">"</div>
+
+    <!-- Main quote -->
+    <p style="font-size: clamp(20px, 2.8vw, 26px); font-weight: 700; color: #1A1A2E; line-height: 1.55; letter-spacing: -0.3px; margin-bottom: 20px;">
+      אני שירה — סוכנת נסיעות שמאמינה שהמלצה טובה שווה יותר מכל מדריך טיול.
+    </p>
+
+    <!-- Supporting text -->
+    <p style="font-size: 16px; color: rgba(26,26,46,0.55); font-weight: 300; line-height: 1.75; margin-bottom: 40px;">
+      כל מה שתמצאו כאן מבוסס על ניסיון אמיתי — מלונות שבדקתי, מסלולים שעבדו,<br>ויעדים שאני ממליצה עליהם בלב שלם.
+    </p>
+
+    <!-- Signature -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 36px;">
+      <div style="width: 40px; height: 1.5px; background: #E8603A; opacity: 0.5;"></div>
+      <span style="font-size: 17px; font-weight: 700; color: #E8603A; letter-spacing: 2px;">שירה</span>
+      <div style="width: 40px; height: 1.5px; background: #E8603A; opacity: 0.5;"></div>
+    </div>
+
+    <!-- Subtle stat -->
+    <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(26,26,46,0.06); padding: 10px 20px; border-radius: 100px;">
+      <span style="font-size: 15px; font-weight: 900; color: #E8603A;">300+</span>
+      <span style="font-size: 13px; color: rgba(26,26,46,0.5); font-weight: 300;">זוגות ומשפחות שיצאו לדרך</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ DESTINATIONS ═══ -->
+<section class="section feed-bg">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-title">לאן הולכים?</h2>
+          <p class="section-sub">שישה יעדים שמכירים לעומק — ומוכנים לספר הכל.</p>
+        </div>
+        <a href="#" class="section-link">כל היעדים ←</a>
+      </div>
+    </div>
+
+    <div class="feed-scroll">
+      <div class="feed-item">
+        <div class="dest-card">
+          <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&auto=format&fit=crop&q=80" alt="יוון">
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-label">
+            <span class="dest-season">קיץ 2026</span>
+            <div class="dest-name">יוון</div>
+            <div class="dest-cities">סנטוריני, מיקונוס, קריטה</div>
+          </div>
+        </div>
+      </div>
+      <div class="feed-item">
+        <div class="dest-card">
+          <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&auto=format&fit=crop&q=80" alt="תאילנד">
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-label">
+            <span class="dest-season">נוב׳–מרץ</span>
+            <div class="dest-name">תאילנד</div>
+            <div class="dest-cities">פוקט, קוסמוי, בנגקוק</div>
+          </div>
+        </div>
+      </div>
+      <div class="feed-item">
+        <div class="dest-card">
+          <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&auto=format&fit=crop&q=80" alt="יפן">
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-label">
+            <span class="dest-season">כל השנה</span>
+            <div class="dest-name">יפן</div>
+            <div class="dest-cities">טוקיו, קיוטו, אוסאקה</div>
+          </div>
+        </div>
+      </div>
+      <div class="feed-item">
+        <div class="dest-card">
+          <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&auto=format&fit=crop&q=80" alt="דרום איטליה">
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-label">
+            <span class="dest-season">אפר׳–יוני</span>
+            <div class="dest-name">דרום איטליה</div>
+            <div class="dest-cities">פוליה, אמלפי, סיציליה</div>
+          </div>
+        </div>
+      </div>
+      <div class="feed-item">
+        <div class="dest-card">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&auto=format&fit=crop&q=80" alt="אינדונזיה">
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-label">
+            <span class="dest-season">מאי–אוק׳</span>
+            <div class="dest-name">אינדונזיה</div>
+            <div class="dest-cities">באלי, לומבוק, ג׳אווה</div>
+          </div>
+        </div>
+      </div>
+      <div class="feed-item">
+        <div class="dest-card">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&auto=format&fit=crop&q=80" alt="דובאי">
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-label">
+            <span class="dest-season">אוק׳–מרץ</span>
+            <div class="dest-name">דובאי</div>
+            <div class="dest-cities">עיר, מדבר, חופים</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ARTICLES ═══ -->
+<section class="section articles-bg">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-title">שווה לקרוא</h2>
+          <p class="section-sub">כתבות שכתבנו כי באמת חשוב לנו שתדעו.</p>
+        </div>
+        <a href="#" class="section-link">כל הכתבות ←</a>
+      </div>
+    </div>
+
+    <!-- Featured -->
+    <div class="article-featured">
+      <div class="article-featured-img">
+        <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=800&auto=format&fit=crop&q=80" alt="המלונות הטובים ביותר בפוקט">
+      </div>
+      <div class="article-featured-body">
+        <span class="tag">תאילנד · המלצות מלונות</span>
+        <h3 class="article-featured-title">המלונות שאנחנו שולחים אליהם כולם בפוקט — ולמה</h3>
+        <p class="article-featured-desc">אחרי עשרות לקוחות שחזרו עם חיוך, הנה הרשימה האמיתית — עם מחירים, כיתות ומה ההבדל בין ריזורט לבוטיק.</p>
+        <a href="#" class="article-featured-link">קראו את הכתבה ←</a>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="articles-grid">
+      <div class="article-card">
+        <div class="article-img">
+          <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&auto=format&fit=crop&q=80" alt="סנטוריני עם ילדים" style="height: 220px;">
+        </div>
+        <span class="tag">יוון</span>
+        <h3 class="article-title">סנטוריני עם ילדים — כן, זה אפשרי</h3>
+        <p class="article-desc">הטיפים שהיינו רוצים לדעת לפני.</p>
+      </div>
+      <div class="article-card">
+        <div class="article-img">
+          <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&auto=format&fit=crop&q=80" alt="10 ימים ביפן" style="height: 220px;">
+        </div>
+        <span class="tag">יפן</span>
+        <h3 class="article-title">10 ימים ביפן — המסלול שעובד לכולם</h3>
+        <p class="article-desc">טוקיו, ניקו, קיוטו ואוסאקה — בסדר הנכון.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REELS CAROUSEL ═══ -->
+<section id="reels-section" style="background: #0D1B2A; padding: 88px 24px; overflow: hidden;">
+  <div style="max-width: 1120px; margin: 0 auto;">
+
+    <!-- Header -->
+    <div style="text-align: center; margin-bottom: 56px;">
+      <div style="font-size: 11px; letter-spacing: 3px; color: #E8603A; text-transform: uppercase; font-weight: 500; margin-bottom: 12px;">כמו באינסטגרם, רק פה</div>
+      <h2 style="font-size: 28px; font-weight: 900; color: #FDFAF5; letter-spacing: -0.5px; margin-bottom: 8px;">הריילס שלנו</h2>
+      <p style="font-size: 15px; color: rgba(253,250,245,0.45); font-weight: 300;">עיפו עכבר על סרטון לתצוגה מלאה</p>
+    </div>
+
+    <!-- 3D Scene -->
+    <div id="reelScene" style="perspective: 900px; perspective-origin: 50% 40%; height: 340px; position: relative; cursor: pointer;">
+      <div id="reelCarousel" style="transform-style: preserve-3d; position: relative; width: 160px; height: 285px; margin: 0 auto; top: 28px;">
+
+        <!-- 6 cards — each rotated 60° apart, translateZ 240px -->
+        <div class="reel-card" data-views="45.2K" style="--ri:0">
+          <video src="assets/videos/video1.mp4" muted loop preload="none" playsinline></video>
+          <div class="reel-grad"></div>
+          <div class="reel-views-badge"><span class="eye-icon">👁</span> 45.2K</div>
+        </div>
+        <div class="reel-card" data-views="67.1K" style="--ri:1">
+          <video src="assets/videos/video2.mp4" muted loop preload="none" playsinline></video>
+          <div class="reel-grad"></div>
+          <div class="reel-views-badge"><span class="eye-icon">👁</span> 67.1K</div>
+        </div>
+        <div class="reel-card" data-views="23.8K" style="--ri:2">
+          <video src="assets/videos/video3.mp4" muted loop preload="none" playsinline></video>
+          <div class="reel-grad"></div>
+          <div class="reel-views-badge"><span class="eye-icon">👁</span> 23.8K</div>
+        </div>
+        <div class="reel-card" data-views="89.4K" style="--ri:3">
+          <video src="assets/videos/video4.mp4" muted loop preload="none" playsinline></video>
+          <div class="reel-grad"></div>
+          <div class="reel-views-badge"><span class="eye-icon">👁</span> 89.4K</div>
+        </div>
+        <div class="reel-card" data-views="34.7K" style="--ri:4">
+          <video src="assets/videos/video5.mp4" muted loop preload="none" playsinline></video>
+          <div class="reel-grad"></div>
+          <div class="reel-views-badge"><span class="eye-icon">👁</span> 34.7K</div>
+        </div>
+        <div class="reel-card" data-views="52.3K" style="--ri:5">
+          <video src="assets/videos/video6.mp4" muted loop preload="none" playsinline></video>
+          <div class="reel-grad"></div>
+          <div class="reel-views-badge"><span class="eye-icon">👁</span> 52.3K</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Instagram link -->
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="https://instagram.com/shiraholidays" target="_blank" rel="noopener"
+         style="display: inline-flex; align-items: center; gap: 10px; color: rgba(253,250,245,0.5); font-size: 14px; font-weight: 400; text-decoration: none; border: 1px solid rgba(253,250,245,0.15); padding: 10px 22px; border-radius: 100px; transition: all 0.2s;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        לאינסטגרם שלנו
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Floating video preview (follows cursor) -->
+<div id="floatingPreview" style="display:none; position:fixed; z-index:1000; pointer-events:none; transition: opacity 0.2s ease; border-radius:12px; overflow:hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.5); width:240px; height:428px;">
+  <video id="floatingVideo" muted loop playsinline style="width:100%; height:100%; object-fit:cover; display:block;"></video>
+  <div id="floatingBadge" style="position:absolute; bottom:14px; right:14px; background:rgba(0,0,0,0.55); color:#fff; font-size:13px; font-weight:700; padding:5px 12px; border-radius:100px; font-family:'Heebo',sans-serif;"></div>
+</div>
+
+<style>
+  .reel-card {
+    position: absolute;
+    width: 160px; height: 285px;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: rotateY(calc(var(--ri) * 60deg)) translateZ(240px);
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+  }
+  .reel-card video {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .reel-grad {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+  }
+  .reel-views-badge {
+    position: absolute; bottom: 10px; right: 10px;
+    color: #fff; font-size: 12px; font-weight: 700;
+    font-family: 'Heebo', sans-serif;
+    display: flex; align-items: center; gap: 4px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  }
+  .eye-icon { font-size: 11px; }
+
+  /* Mobile: simpler horizontal scroll instead of 3D */
+  @media (max-width: 768px) {
+    #reelScene { height: auto; perspective: none; }
+    #reelCarousel {
+      transform-style: flat !important;
+      transform: none !important;
+      width: 100% !important;
+      height: auto !important;
+      display: flex !important;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+      top: 0 !important;
+    }
+    .reel-card {
+      flex: 0 0 150px;
+      height: 267px;
+      position: relative !important;
+      transform: none !important;
+      scroll-snap-align: start;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  const carousel  = document.getElementById('reelCarousel');
+  const floating  = document.getElementById('floatingPreview');
+  const floatVid  = document.getElementById('floatingVideo');
+  const floatBadge = document.getElementById('floatingBadge');
+  const cards     = document.querySelectorAll('.reel-card');
+
+  // 3D rotation
+  let angle = 0;
+  let paused = false;
+
+  function tick() {
+    if (!paused) {
+      angle -= 0.22;
+      carousel.style.transform = `rotateY(${angle}deg)`;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // Only run 3D on desktop
+  if (window.innerWidth > 768) {
+    tick();
+    // Play each card's video silently
+    cards.forEach(card => {
+      const v = card.querySelector('video');
+      v.load();
+      v.play().catch(() => {});
+    });
+  }
+
+  // Floating preview — desktop only
+  if (window.innerWidth > 768) {
+    function placeFloat(e) {
+      const fw = 240, fh = 428, pad = 28;
+      let x = e.clientX + pad;
+      let y = e.clientY - fh / 2;
+      if (x + fw > window.innerWidth - 10)  x = e.clientX - fw - pad;
+      if (y < 10) y = 10;
+      if (y + fh > window.innerHeight - 10) y = window.innerHeight - fh - 10;
+      floating.style.left = x + 'px';
+      floating.style.top  = y + 'px';
+    }
+
+    cards.forEach(card => {
+      const cardVid = card.querySelector('video');
+
+      card.addEventListener('mouseenter', e => {
+        paused = true;
+        floatVid.src = cardVid.src;
+        floatVid.load();
+        floatVid.play().catch(() => {});
+        floatBadge.textContent = '👁 ' + card.dataset.views;
+        floating.style.opacity = '0';
+        floating.style.display = 'block';
+        requestAnimationFrame(() => floating.style.opacity = '1');
+        placeFloat(e);
+      });
+
+      card.addEventListener('mousemove', placeFloat);
+
+      card.addEventListener('mouseleave', () => {
+        paused = false;
+        floating.style.opacity = '0';
+        setTimeout(() => {
+          floating.style.display = 'none';
+          floatVid.pause();
+        }, 200);
+      });
+    });
+  }
+})();
+</script>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <img class="cta-bg" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&auto=format&fit=crop&q=80" alt="">
+  <div class="cta-overlay"></div>
+  <div class="cta-inner">
+    <div>
+      <p class="cta-eyebrow">מסלולים מוכנים להורדה</p>
+      <h2 class="cta-title">מורידים מסלול<br>לטלפון — ויוצאים.</h2>
+      <p class="cta-desc">מפות, שעות, מחירים ומלונות — הכל מוכן. כל שנשאר זה להזמין כרטיסים.</p>
+    </div>
+    <a href="#" class="btn-white">לכל המסלולים ←</a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">שירה<span>הולידייז</span></div>
+      <p class="footer-tagline">המלצות אמיתיות לזוגות ומשפחות</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">יעדים</a>
+      <a href="#">מסלולים</a>
+      <a href="#">מלונות</a>
+      <a href="#">טיפים</a>
+    </div>
+    <p class="footer-copy">© 2026 Shira Holidays</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navDrawer = document.getElementById('navDrawer');
+  hamburger.addEventListener('click', () => {
+    navDrawer.classList.toggle('open');
+  });
+  // Close drawer when clicking a link
+  navDrawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navDrawer.classList.remove('open'));
+  });
+</script>
+<script src="assets/js/site.js"></script>
+
+</body>
+</html>

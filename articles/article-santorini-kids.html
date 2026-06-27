@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>סנטוריני עם ילדים — המדריך הכן שאף אחד לא כתב — שירה הולידייז</title>
+  <meta name="description" content="האמת על סנטוריני עם ילדים — איזה חלק מהאי עובד, איזה חלק לא, ואיך בונים חופשה שהורים ילדים ייזכרו בה לטובה." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --coral: #E8603A;
+      --dark: #1A1A2E;
+      --cream: #FDFAF5;
+      --cream2: #F5F0E8;
+    }
+    * { font-family: 'Heebo', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--dark); }
+
+    .article-body p {
+      margin-bottom: 1.6rem;
+      line-height: 1.9;
+    }
+
+    .drop-cap::first-letter {
+      font-size: 4.5rem;
+      font-weight: 800;
+      float: right;
+      line-height: 0.75;
+      margin-left: 0.15em;
+      color: var(--coral);
+    }
+
+    header { transition: transform 0.3s ease; }
+
+    .honest-box {
+      background: #FFF3EE;
+      border-right: 4px solid var(--coral);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 1rem 1rem 0;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#FDFAF5]/95 backdrop-blur-md shadow-sm">
+    <div class="flex items-center justify-between px-6 md:px-12 py-4">
+      <a href="../index.html" class="text-2xl font-black text-[#1A1A2E]">
+        שירה<span class="text-[#E8603A]">הולידייז</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-[#1A1A2E]/70 font-medium">
+        <a href="../index.html#destinations" class="hover:text-[#E8603A] transition-colors">יעדים</a>
+        <span class="text-[#1A1A2E]/20">|</span>
+        <a href="../index.html#articles" class="hover:text-[#E8603A] transition-colors">כתבות</a>
+        <span class="text-[#1A1A2E]/20">|</span>
+        <a href="#" class="hover:text-[#E8603A] transition-colors">מסלולים</a>
+        <span class="text-[#1A1A2E]/20">|</span>
+        <a href="#" class="hover:text-[#E8603A] transition-colors">מי אנחנו</a>
+      </nav>
+      <button class="md:hidden text-[#1A1A2E]" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#FDFAF5] border-t border-[#1A1A2E]/10 px-6 py-4 space-y-3 text-sm font-medium">
+      <a href="../index.html#destinations" class="block text-[#1A1A2E]/70 py-1">יעדים</a>
+      <a href="../index.html#articles" class="block text-[#1A1A2E]/70 py-1">כתבות</a>
+      <a href="#" class="block text-[#1A1A2E]/70 py-1">מסלולים</a>
+      <a href="#" class="block text-[#1A1A2E]/70 py-1">מי אנחנו</a>
+    </div>
+  </header>
+
+  <main class="pt-16">
+
+    <!-- Hero Image -->
+    <div class="relative h-[70vh] overflow-hidden">
+      <img
+        src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1600&q=85"
+        alt="סנטוריני שקיעה — כיפות כחולות ואור"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+      <div class="absolute bottom-0 right-0 left-0 p-8 md:p-14">
+        <p class="text-white/60 text-xs tracking-[0.3em] font-medium uppercase mb-3">יעדים · יוון</p>
+        <h1 class="text-white font-black leading-tight mb-4" style="font-size:clamp(1.8rem,5vw,3.8rem);text-shadow:0 4px 32px rgba(0,0,0,0.5);">
+          סנטוריני עם ילדים — המדריך הכן שאף אחד לא כתב
+        </h1>
+        <p class="text-white/80 text-base md:text-xl font-light max-w-2xl leading-relaxed">
+          האמת על מה שעובד, מה שלא — ואיך בונים חופשה שכולם ייזכרו בה לטובה.
+        </p>
+      </div>
+    </div>
+
+    <!-- Article Meta -->
+    <div class="max-w-3xl mx-auto px-6 md:px-8 py-6 border-b border-[#1A1A2E]/10">
+      <div class="flex flex-wrap items-center gap-4 text-[#1A1A2E]/50 text-sm">
+        <span><i class="fa-regular fa-calendar ml-2"></i>יוני 2026</span>
+        <span><i class="fa-regular fa-clock ml-2"></i>7 דקות קריאה</span>
+        <span><i class="fa-solid fa-location-dot ml-2"></i>סנטוריני, יוון</span>
+      </div>
+    </div>
+
+    <!-- Affiliate Disclosure -->
+    <div class="max-w-3xl mx-auto px-6 md:px-8 pt-8">
+      <div class="bg-[#F5F0E8] rounded-xl px-5 py-3 text-[#1A1A2E]/50 text-sm font-light leading-relaxed">
+        <i class="fa-solid fa-circle-info ml-2 text-[#E8603A]"></i>
+        חלק מהקישורים בכתבה הם קישורי שותפים — אם מזמינים דרכם, אנחנו מקבלים עמלה קטנה ללא עלות נוספת מצדכם. זה עוזר לנו להמשיך לכתוב.
+      </div>
+    </div>
+
+    <!-- Article Body -->
+    <article class="max-w-3xl mx-auto px-6 md:px-8 py-12 article-body">
+
+      <p class="drop-cap text-[#1A1A2E] text-xl font-light leading-relaxed">
+        השאלה הכי נפוצה שמקבלים מהורים לפני טיול ליוון היא: "אנחנו עם ילדים — האם סנטוריני בכלל מתאים?" התשובה הקצרה: כן. התשובה הארוכה: כן, אבל צריך לדעת לבחור את הצד הנכון של האי. כי סנטוריני היא בעצם שתי חופשות שונות לגמרי, שקורות באותו מקום.
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        הכתבה הזאת לא תספר לכם שסנטוריני קלה עם ילדים — היא לא. יש שם מדרגות, מבוכים של סמטאות, וחום שמהמם בצהריים. אבל יש שם גם חופי שחור מדהימים, ים שקט ורדוד, ונופים שאפילו ילד בן ארבע יפסיק לשאול "מתי נאכל" כדי להביט בהם.
+      </p>
+
+      <!-- Section 1 -->
+      <h2 class="text-3xl font-bold text-[#1A1A2E] mt-16 mb-6">הסוד שאף מדריך לא מספר: יש שני אי שונים כאן</h2>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        המצוק המערבי — אויה, פירה, אימרוביגלי — הוא הסנטוריני של כל התמונות. לבן, כחול, שקיעות שמורידות לחץ. אבל הוא בנוי כולו על מדרגות, פתחים צרים ואבני ריצוף לא אחידות. לדחוף עגלה שם זה כמו לדחוף עגלה בעיר עתיקה מימי הביניים. אפשרי? לפעמים. כיף? ממש לא.
+      </p>
+
+      <div class="honest-box">
+        <p class="text-[#1A1A2E] font-medium mb-0"><strong>ה"כן אבל":</strong> האזורים הקלדרתיים שווים ביקור — אבל לא שם כדאי לישון עם ילדים קטנים. מגיעים לשם לשעתיים, מצלמים, אוכלים ארוחת ערב, ורוצים חזרה למקום שקל יותר לנשום בו.</p>
+      </div>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        הצד המזרחי — קמארי, פריסה, פריבולוס — הוא אחר לגמרי. שטוח. ים שנכנס אליו בהדרגה. טיילת שאפשר לרוץ בה עם עגלה. פחות פוטוגני ממצוק הקלדרה, אבל זה המקום שממנו החופשה נבנית כשיש ילדים. ורוב המשפחות שמגיעות לשם פעם שנייה — בוחרות בצד הזה.
+      </p>
+
+      <!-- Section 2 -->
+      <h2 class="text-3xl font-bold text-[#1A1A2E] mt-16 mb-6">החופים שבאמת עובדים עם ילדים</h2>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        <strong class="font-semibold">פריסה ופריסה</strong> — החוף השחור. הילדים מתאהבים בחול השחור בדרך כלל בשניות. הים שם נכנס בשיפוע נעים, יש מתחת לים שלל צבעים (הלבה בצבעים שונים), ולאורך הטיילת יש כל מה שצריך. הסייג: חול געשי שחור מתחמם מאוד בשעות הצהריים של קיץ — נעלי שחייה לילדים הן חובה.
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        <strong class="font-semibold">מונוליתוס</strong> — קצת פחות מוכר, וזה בדיוק היתרון שלו. חוף ים שקט ורדוד עם גלים קטנים, ופינת משחקים לילדים ממש על החוף. אחד מהחופים הבודדים באי שנבנה עם מחשבה על משפחות.
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        <strong class="font-semibold">קמארי</strong> — חוף עירוני עם כל השירותים, טיילת שמתאימה לכל הגילאים, ומגוון מסעדות עם תפריטים שגם ילדים אוהבים. הים שם קצת פחות שקט מפריסה, אבל בגלים קטנים שקל יותר לצוף.
+      </p>
+
+      <!-- Section 3 -->
+      <h2 class="text-3xl font-bold text-[#1A1A2E] mt-16 mb-6">עגלה? תשאירו בבית. מנשא? חובה.</h2>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        זו אחת העצות שנשמעת קטנה וחוסכת הכי הרבה צרות. גם אם אתם בחלק השטוח של האי, יש שם מדרגות ספוראדיות, אבנים לא אחידות, ורחבות בוץ אחרי גשם. עגלה כבדה הופכת כל אחת מהאלה לאירוע. מנשא (מה שנקרא carrier) משאיר ידיים פנויות, ניידות מלאה, ולא גוזל מבט מהמקום.
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        לילדים גדולים יותר (4+): שכירת רכב קטן לכמה ימים היא המהלך הכי נכון. ממנו אפשר להגיע לחופים השקטים שמחוץ לטיילת, לאתרים שהאוטובוס לא מגיע אליהם, ולאויה בשעות הבוקר לפני שמגיעים כל שאר האנשים.
+      </p>
+
+      <!-- Section 4 -->
+      <h2 class="text-3xl font-bold text-[#1A1A2E] mt-16 mb-6">מה עושים שם שיהיה כיף לכולם — לא רק להורים</h2>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        <strong class="font-semibold">שיט קלדרה:</strong> זה הדבר שגורם לילדים לדבר על הטיול חודשים אחרי. ספינה קטנה שסובבת את לוע הר הגעש, עוצרת ליד מי מעיין חמים שממש חמים (הגעש עדיין פעיל בצורה נמוכה), ועצירה לשחייה בים הפתוח. לילדים מגיל 5 ומעלה — חוויה שאף בריכת מלון לא תשכפל.
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        <strong class="font-semibold">אויה לפנות בוקר:</strong> אויה בשמונה בבוקר זה כמעט ריק. הילדים יכולים לרוץ בסמטאות, לגלות חתולים ישנוניים, ולהביט על האי שנראה כמו מודל של עצמו. עד עשר — כבר מגיעים ספינות הקרוז וזה נגמר.
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        <strong class="font-semibold">יקב Domaine Sigalas:</strong> נשמע כמו לא לילדים, אבל הסיורים שלהם עוברים בכרמים שגדלים ישירות בלבה, ויש שם מיצי ענב וגבינות בשביל הקטנים. ההסבר על "למה הענבים גדלים ככה בקרקע הגעשית" הוא שיעור מדעי שגננת לא תעשה.
+      </p>
+
+      <!-- Tips Box -->
+      <div class="my-14 bg-[#F5F0E8] rounded-2xl p-8">
+        <h3 class="font-bold text-xl mb-6 flex items-center gap-3" style="color:var(--coral);">
+          <i class="fa-solid fa-lightbulb"></i>
+          טיפים מעשיים לסנטוריני עם ילדים
+        </h3>
+        <ul class="space-y-4 text-[#1A1A2E] font-light text-base">
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">תגיעו באפריל–מאי או ספטמבר–אוקטובר.</strong> פחות עומס, פחות חום, מחירים יותר טובים. ספינות הקרוז מגיעות פחות וילדים יכולים לנשום.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">נעלי שחייה לחוף — חובה.</strong> החול הגעשי השחור מתחמם מאוד. ילד יחף בצהריים בקיץ יצרח.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">ישנים בקמארי או פריסה, מבקרים בקלדרה.</strong> לא להיפך. כבשו בסיס שטוח ונוח, וצאו לביקורים קצרים בצד הציורי.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">שיט קלדרה — הזמינו שבועות מראש.</strong> זה ממלא, במיוחד הסיורים הקטנים.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">Andronis Arcadia באויה</strong> הוא אחד המלונות הבודדים בחלק הקלדרתי שבנוי עם רמפות ומעליות — אפשרות אם ממש רוצים לישון שם.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">השקיעה באויה עם ילדים:</strong> הגיעו 75 דקות לפני. עם ילדים צריך מיקום טוב ואי אפשר להרשות לאיחר.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Closing Quote -->
+      <p class="text-[#1A1A2E] text-xl font-light leading-relaxed border-r-4 pr-6 my-12" style="border-color:var(--coral);">
+        סנטוריני עם ילדים היא לא חופשת זוג בתחפושת. היא חופשה אחרת — יותר לוגיסטית, יותר תכנון, וגם יותר מלאה. ורגע שילד עומד מול הקלדרה בפעם הראשונה ושואל "זה הר געש?" — מבינים למה שווה.
+      </p>
+
+    </article>
+
+    <!-- Related Articles -->
+    <section class="bg-[#F5F0E8] py-16 px-6 md:px-8">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold text-[#1A1A2E] mb-10 text-center">כתבות נוספות שאולי יעניינו אתכם</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a href="article-greece.html" class="bg-white rounded-2xl overflow-hidden hover:shadow-md transition-shadow group">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80" alt="יוון" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <div class="p-5">
+              <p class="text-xs font-semibold mb-1" style="color:var(--coral);">יוון</p>
+              <h3 class="text-[#1A1A2E] font-bold text-base">10 ימים ביוון — המסלול לזוגות</h3>
+            </div>
+          </a>
+          <a href="article-phuket-hotels.html" class="bg-white rounded-2xl overflow-hidden hover:shadow-md transition-shadow group">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="פוקט" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <div class="p-5">
+              <p class="text-xs font-semibold mb-1" style="color:var(--coral);">תאילנד</p>
+              <h3 class="text-[#1A1A2E] font-bold text-base">המלונות שאנחנו שולחים אליהם בפוקט</h3>
+            </div>
+          </a>
+          <a href="article-bali.html" class="bg-white rounded-2xl overflow-hidden hover:shadow-md transition-shadow group">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=600&q=80" alt="באלי" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <div class="p-5">
+              <p class="text-xs font-semibold mb-1" style="color:var(--coral);">אינדונזיה</p>
+              <h3 class="text-[#1A1A2E] font-bold text-base">באלי — מה שאף מדריך לא מספר לכם</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#1A1A2E] text-white py-14 px-6 md:px-12">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <h3 class="text-xl font-black mb-3">שירה<span style="color:var(--coral);">הולידייז</span></h3>
+        <p class="text-white/50 font-light text-sm leading-relaxed">טיולים שתזכרו לתמיד — מתחיל כאן.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-sm text-white/50 tracking-wider uppercase">ניווט</h4>
+        <ul class="space-y-2 text-white/70 font-light text-sm">
+          <li><a href="../index.html#destinations" class="hover:text-white transition-colors">יעדים</a></li>
+          <li><a href="../index.html#articles" class="hover:text-white transition-colors">כתבות</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">מסלולים</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">מי אנחנו</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-sm text-white/50 tracking-wider uppercase">צור קשר</h4>
+        <p class="text-white/70 font-light text-sm">shiraholidays.com</p>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto pt-8 border-t border-white/10 text-center text-white/30 text-xs">
+      © 2026 שירה הולידייז. כל הזכויות שמורות. |
+      <a href="../privacy.html" class="hover:text-white/60 transition-colors">מדיניות פרטיות</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      let lastY = 0;
+      window.addEventListener('scroll', () => {
+        const nav = document.querySelector('header');
+        const y = window.scrollY;
+        nav.style.transform = (y > lastY && y > 100) ? 'translateY(-100%)' : 'translateY(0)';
+        lastY = y;
+      });
+    })();
+  </script>
+
+<script src="../assets/js/site.js"></script>
+</body>
+</html>

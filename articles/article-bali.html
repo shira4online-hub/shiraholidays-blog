@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>באלי — מה שאף מדריך לא מספר לכם (ומה שכן) — שירה הולידייז</title>
+  <meta name="description" content="באלי מעבר לאינסטגרם: מה שאנשים לא יספרו לכם על כנגו, אובוד ונוסה פנידה — ואיפה מוצאים את הבאלי האמיתית שרוב התיירים מפספסים." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --coral: #E8603A;
+      --dark: #1A1A2E;
+      --cream: #FDFAF5;
+      --cream2: #F5F0E8;
+    }
+    * { font-family: 'Heebo', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--dark); }
+
+    .article-body p {
+      margin-bottom: 1.6rem;
+      line-height: 1.9;
+    }
+
+    .drop-cap::first-letter {
+      font-size: 4.5rem;
+      font-weight: 800;
+      float: right;
+      line-height: 0.75;
+      margin-left: 0.15em;
+      color: var(--coral);
+    }
+
+    header { transition: transform 0.3s ease; }
+
+    .area-card {
+      background: white;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      margin: 2rem 0;
+      border: 1px solid rgba(26,26,46,0.06);
+    }
+
+    .area-card-header {
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#FDFAF5]/95 backdrop-blur-md shadow-sm">
+    <div class="flex items-center justify-between px-6 md:px-12 py-4">
+      <a href="../index.html" class="text-2xl font-black text-[#1A1A2E]">
+        שירה<span class="text-[#E8603A]">הולידייז</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-[#1A1A2E]/70 font-medium">
+        <a href="../index.html#destinations" class="hover:text-[#E8603A] transition-colors">יעדים</a>
+        <span class="text-[#1A1A2E]/20">|</span>
+        <a href="../index.html#articles" class="hover:text-[#E8603A] transition-colors">כתבות</a>
+        <span class="text-[#1A1A2E]/20">|</span>
+        <a href="#" class="hover:text-[#E8603A] transition-colors">מסלולים</a>
+        <span class="text-[#1A1A2E]/20">|</span>
+        <a href="#" class="hover:text-[#E8603A] transition-colors">מי אנחנו</a>
+      </nav>
+      <button class="md:hidden text-[#1A1A2E]" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#FDFAF5] border-t border-[#1A1A2E]/10 px-6 py-4 space-y-3 text-sm font-medium">
+      <a href="../index.html#destinations" class="block text-[#1A1A2E]/70 py-1">יעדים</a>
+      <a href="../index.html#articles" class="block text-[#1A1A2E]/70 py-1">כתבות</a>
+      <a href="#" class="block text-[#1A1A2E]/70 py-1">מסלולים</a>
+      <a href="#" class="block text-[#1A1A2E]/70 py-1">מי אנחנו</a>
+    </div>
+  </header>
+
+  <main class="pt-16">
+
+    <!-- Hero Image -->
+    <div class="relative h-[70vh] overflow-hidden">
+      <img
+        src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=1600&q=85"
+        alt="באלי — טרסות אורז"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+      <div class="absolute bottom-0 right-0 left-0 p-8 md:p-14">
+        <p class="text-white/60 text-xs tracking-[0.3em] font-medium uppercase mb-3">יעדים · אינדונזיה</p>
+        <h1 class="text-white font-black leading-tight mb-4" style="font-size:clamp(1.8rem,5vw,3.8rem);text-shadow:0 4px 32px rgba(0,0,0,0.5);">
+          באלי — מה שאף מדריך לא מספר לכם (ומה שכן)
+        </h1>
+        <p class="text-white/80 text-base md:text-xl font-light max-w-2xl leading-relaxed">
+          מה שנמצא מאחורי הפידים, מה שמצלמים פחות ומחפיצים יותר — ואיך לבנות חופשת באלי שתהיה של ממש.
+        </p>
+      </div>
+    </div>
+
+    <!-- Article Meta -->
+    <div class="max-w-3xl mx-auto px-6 md:px-8 py-6 border-b border-[#1A1A2E]/10">
+      <div class="flex flex-wrap items-center gap-4 text-[#1A1A2E]/50 text-sm">
+        <span><i class="fa-regular fa-calendar ml-2"></i>יוני 2026</span>
+        <span><i class="fa-regular fa-clock ml-2"></i>8 דקות קריאה</span>
+        <span><i class="fa-solid fa-location-dot ml-2"></i>באלי, אינדונזיה</span>
+      </div>
+    </div>
+
+    <!-- Affiliate Disclosure -->
+    <div class="max-w-3xl mx-auto px-6 md:px-8 pt-8">
+      <div class="bg-[#F5F0E8] rounded-xl px-5 py-3 text-[#1A1A2E]/50 text-sm font-light leading-relaxed">
+        <i class="fa-solid fa-circle-info ml-2 text-[#E8603A]"></i>
+        חלק מהקישורים בכתבה הם קישורי שותפים — אם מזמינים דרכם, אנחנו מקבלים עמלה קטנה ללא עלות נוספת מצדכם. זה עוזר לנו להמשיך לכתוב.
+      </div>
+    </div>
+
+    <!-- Article Body -->
+    <article class="max-w-3xl mx-auto px-6 md:px-8 py-12 article-body">
+
+      <p class="drop-cap text-[#1A1A2E] text-xl font-light leading-relaxed">
+        באלי מתחלקת לשתיים: הבאלי שכולם מכירים מאינסטגרם — בריכות אינפיניטי שנשפכות לג'ונגל, קפות עם קערות אסאי, שקיעות על גב סקי-דו — והבאלי האחרת. זאת עם ריח קטורת שעולה מהמקדשים בכל בוקר, קולות גנגסה, אורזים שרוח קלה מניעה בטרסות ירוקות, ומשהו שקשה להסביר אבל שגורם לאנשים לחזור שנה אחרי שנה.
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        הכתבה הזאת לא תגיד לכם שהבאלי הראשונה "פחות טובה" — להיפך, חלק ממנה מדהים. אבל מי שמגיע ורואה רק אותה, מפספס את הדבר שבאמת גורם לאנשים לשנות תוכנית ולהישאר שבוע נוסף.
+      </p>
+
+      <!-- Section 1: Canggu -->
+      <h2 class="text-3xl font-bold text-[#1A1A2E] mt-16 mb-6">כנגו: כפר גלישה שנהפך לשכונה של תל אביב — ועדיין שווה</h2>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        כנגו היא עכשיו הלב הפועם של "חיי הלילה הבוגרים" בבאלי. יש שם קפות עם פלייליסטים טובים, מסעדות שמישהו השקיע בהן עיצוב אמיתי, ובר גלישה שיוצאים ממנו עם קרשים לתוך הגלים. לאנשים שמגיעים לצ'יל שבועיים ולא לסייר — כנגו היא הבסיס המושלם.
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        מה שלא מספרים: כנגו בשנים האחרונות קצת נמאסה על עצמה. הפקקים גדולו, מחירי המלונות קפצו, וחלק מהאווירה האותנטית שהייתה פה לפני חמש שנים עברה מזרחה — לאזורי פרינגינאן וסיאנג. אם מגיעים בקיץ ורוצים לגלוש וגם לא להרגיש בתל אביב בחו"ל — כדאי לבדוק את הצד המזרחי של כנגו.
+      </p>
+
+      <!-- Section 2: Ubud -->
+      <h2 class="text-3xl font-bold text-[#1A1A2E] mt-16 mb-6">אובוד: כשבאלי מורידה את המסכה</h2>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        אובוד היא הכפר שבו המהות של באלי — הרוחניות, האמנות, החיים הואטים — עוד נמצאת. לא כי היא לא עמוסה (היא עמוסה), אלא כי יש בה משהו שדוחף חזרה: מקדשים פעילים, ריקודי Kecak בערב, שווקי אמנות שאפשר להרגיש שיצרו אותם אנשים ולא מפעל.
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        הדבר הכי טוב לעשות באובוד: לצאת בשש בבוקר לטרסות האורז של Tegallalang לפני שהסיורים מגיעים. שמונה בבוקר — כבר עמוס. שש בבוקר — רק אתם, ערפל שמתפוגג, ציפורים, וירוק שלא ניתן לתאר. אחד הרגעים שאנשים מתארים כ"הדבר הכי יפה שראיתי בחיים".
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        לאחר מכן — ריטריט יוגה, עיסוי בלינזי, ספאי שמן ועשבי תיבול. אובוד בנויה לאנשים שרוצים לפרוק. היא לא עיר לילה. היא עיר בוקר.
+      </p>
+
+      <!-- Section 3: Nusa Penida -->
+      <h2 class="text-3xl font-bold text-[#1A1A2E] mt-16 mb-6">נוסה פנידה: כן, שווה — אבל כך</h2>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        תמונת Kelingking Beach — הצוק בצורת טי-רקס מעל חוף לבן — היא אחת מהתמונות הכי משותפות בבאלי. נוסה פנידה שווה ביקור, אבל עם ציפיות מכוונות. ה-Kelingking הוא צוק שמסתכלים עליו מלמעלה — לרדת אליו לקחת שעה וחצי (כל כיוון) על שבילים תלולים. רוב האנשים מצלמים מלמעלה ועוברים. וזה בסדר.
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        הטיפ הכנה לנוסה פנידה: <strong class="font-semibold">לא להגיע בסיור מאורגן של יום שלם.</strong> 70% מהאנשים שמגיעים כך מסיימים את היום עייפים ומאוכזבים — עמוסה, חמה, ורואים הכל בריצה. עדיף: לשכור אופנוע (או נהג פרטי) ולהגיע לשלושה אתרים בלבד. יותר ממה שמספיקים לספוג.
+      </p>
+
+      <!-- Section 4: Hidden Bali -->
+      <h2 class="text-3xl font-bold text-[#1A1A2E] mt-16 mb-6">הבאלי שרוב התיירים לא מוצאים: שידמן ולמבונגן</h2>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        <strong class="font-semibold">שידמן</strong> (Sidemen) הוא הבאלי לפני שגילו אותה. כפר קטן בצד המזרחי של האי, עם טרסות האורז הגבוהות ביותר ונוף לג'בל אגונג — הר הגעש של האי. שם אין מועדון לילה, אין שלטים באנגלית על כל דלת, ואין קפות עם אבוקדו טוסט. יש בתים, שדות, שקט, ואנשים שחיים את חייהם. מי שמגיע לשם ליומיים מבין מה אנשים התכוונו כשאמרו "בעבר, באלי הייתה אחרת".
+      </p>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        <strong class="font-semibold">נוסה למבונגן</strong> היא מה שנוסה פנידה הייתה לפני שגילו אותה. אי קטן שמגיעים אליו מסנור בשעה אחת, עם שוניות אלמוג, חופים שעדיין נמצאים בשלהם, וספינות גלישה שנוסעות בשקט. ים שגיף שפות של אצות (כן, זה יפה יותר ממה שזה נשמע). אי שמומלץ לשלב ביקור אחד כחלק מהטיול.
+      </p>
+
+      <!-- Section 5: Uluwatu -->
+      <h2 class="text-3xl font-bold text-[#1A1A2E] mt-16 mb-6">אולוואטו: קצה האי שכולם רוצים להגיע אליו</h2>
+
+      <p class="text-[#1A1A2E] text-lg font-light leading-relaxed">
+        אם יש אזור אחד בבאלי שמצדיק את כל הכותרות, זה אולוואטו. מקדש Pura Luhur שנבנה על קצה צוק מעל האוקיינוס ההודי, ריקוד Kecak בשקיעה שמועלה שם כל ערב (מגיעים שעה לפני), ולפני — ירידה לחופי Padang Padang ו-Bingin שנחתכו לתוך הצוקים. עם כסאות שיזף, גלים ומעט צל.
+      </p>
+
+      <!-- Tips Box -->
+      <div class="my-14 bg-[#F5F0E8] rounded-2xl p-8">
+        <h3 class="font-bold text-xl mb-6 flex items-center gap-3" style="color:var(--coral);">
+          <i class="fa-solid fa-lightbulb"></i>
+          באלי — מה שצריך לדעת לפני
+        </h3>
+        <ul class="space-y-4 text-[#1A1A2E] font-light text-base">
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">עונה יבשה: אפריל–אוקטובר.</strong> מה שאמור להיות "גשם" בעונה הרטובה זה בדרך כלל שעה ביום, לא ימים שלמים — אבל הים פחות שקט.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">אופנוע = חופש.</strong> ברוב אזורי באלי, אופנוע שכור (15–25 דולר ליום) הוא הדרך הנכונה לנסוע. הפקקים בכבישים הראשיים עשויים לקחת 45 דקות. על אופנוע — 10 דקות. אם לא נוסעים על אופנוע — שכרו נהג פרטי ליום.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">מקדשים = כיסוי.</strong> כניסה למקדש מחייבת סרונג (בד עטיפה) מסביב למותניים. ברוב המקדשים מקבלים להשאיל בכניסה — אבל לדעת מראש.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">אל תאכלו בכל מקום.</strong> מסעדות "tourist menu" הן לא מה שבאלי יש להציע. חפשו warungs — אוכל מקומי ב-3–5 דולר לארוחה. Nasi Goreng ו-Mie Goreng מהן — עשרות מדרגות מעל הגרסה התיירותית.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">מלונות: ולה פרטי ≠ יקר.</strong> בבאלי אפשר לקבל ולה עם בריכה פרטית בין 80–150 דולר ללילה. בהשוואה ליעדים אחרים — זה מחיר של 3 כוכבים.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check mt-1 shrink-0" style="color:var(--coral);"></i>
+            <span><strong class="font-semibold">10 ימים — המינימום להרגיש את הגוונים.</strong> פחות מזה ורואים רק שטח פנים. עם 10 ימים אפשר לשלב אובוד + כנגו/אולוואטו + יום באחד האיים הקטנים.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Closing Quote -->
+      <p class="text-[#1A1A2E] text-xl font-light leading-relaxed border-r-4 pr-6 my-12" style="border-color:var(--coral);">
+        באלי היא האי היחיד שמכיר בעצמו — היא יודעת שהיא יפה, שהיא חמה, שהיא מרגיעה. אבל מי שמגיע לשמוע מה שהיא אומרת בלחש, לא בצעקה — מוצא שם דבר שלא ייתן לו מנוח עד שיחזור.
+      </p>
+
+    </article>
+
+    <!-- Related Articles -->
+    <section class="bg-[#F5F0E8] py-16 px-6 md:px-8">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold text-[#1A1A2E] mb-10 text-center">כתבות נוספות שאולי יעניינו אתכם</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a href="article-phuket-hotels.html" class="bg-white rounded-2xl overflow-hidden hover:shadow-md transition-shadow group">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="פוקט" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <div class="p-5">
+              <p class="text-xs font-semibold mb-1" style="color:var(--coral);">תאילנד</p>
+              <h3 class="text-[#1A1A2E] font-bold text-base">המלונות שאנחנו שולחים אליהם בפוקט</h3>
+            </div>
+          </a>
+          <a href="article-greece.html" class="bg-white rounded-2xl overflow-hidden hover:shadow-md transition-shadow group">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80" alt="יוון" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <div class="p-5">
+              <p class="text-xs font-semibold mb-1" style="color:var(--coral);">יוון</p>
+              <h3 class="text-[#1A1A2E] font-bold text-base">10 ימים ביוון — המסלול לזוגות</h3>
+            </div>
+          </a>
+          <a href="article-puglia.html" class="bg-white rounded-2xl overflow-hidden hover:shadow-md transition-shadow group">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=600&q=80" alt="פוליה" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <div class="p-5">
+              <p class="text-xs font-semibold mb-1" style="color:var(--coral);">איטליה</p>
+              <h3 class="text-[#1A1A2E] font-bold text-base">פוליה — דרום איטליה הנסתרת</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#1A1A2E] text-white py-14 px-6 md:px-12">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <h3 class="text-xl font-black mb-3">שירה<span style="color:var(--coral);">הולידייז</span></h3>
+        <p class="text-white/50 font-light text-sm leading-relaxed">טיולים שתזכרו לתמיד — מתחיל כאן.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-sm text-white/50 tracking-wider uppercase">ניווט</h4>
+        <ul class="space-y-2 text-white/70 font-light text-sm">
+          <li><a href="../index.html#destinations" class="hover:text-white transition-colors">יעדים</a></li>
+          <li><a href="../index.html#articles" class="hover:text-white transition-colors">כתבות</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">מסלולים</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">מי אנחנו</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-sm text-white/50 tracking-wider uppercase">צור קשר</h4>
+        <p class="text-white/70 font-light text-sm">shiraholidays.com</p>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto pt-8 border-t border-white/10 text-center text-white/30 text-xs">
+      © 2026 שירה הולידייז. כל הזכויות שמורות. |
+      <a href="../privacy.html" class="hover:text-white/60 transition-colors">מדיניות פרטיות</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      let lastY = 0;
+      window.addEventListener('scroll', () => {
+        const nav = document.querySelector('header');
+        const y = window.scrollY;
+        nav.style.transform = (y > lastY && y > 100) ? 'translateY(-100%)' : 'translateY(0)';
+        lastY = y;
+      });
+    })();
+  </script>
+
+<script src="../assets/js/site.js"></script>
+</body>
+</html>
