@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZX8CX867M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KZX8CX867M');
+</script>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/icons/favicon-64.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מסלולים ביוון | שירה הולידייז</title>
+  <meta name="description" content="מסלולי טיול מוכנים ביוון — סנטוריני, מיקונוס, אתונה וקרט. לזוגות, משפחות וחופשת חלומות.">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Heebo', sans-serif; background: #FDFAF5; color: #1A1A2E; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    :root { --coral:#E8603A; --dark:#1A1A2E; --cream:#FDFAF5; --cream2:#F5F0E8; --muted:rgba(26,26,46,0.5); --border:rgba(26,26,46,0.08); }
+
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(253,250,245,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 62px; }
+    .nav-logo { font-size: 20px; font-weight: 900; color: var(--dark); letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--coral); }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links > a, .nav-item > a { color: var(--muted); font-size: 15px; transition: color 0.2s; padding: 6px 12px; border-radius: 8px; }
+    .nav-links > a:hover, .nav-item > a:hover { color: var(--dark); background: var(--cream2); }
+    .nav-links > a.active { color: var(--coral); font-weight: 500; }
+    .nav-item { position: relative; }
+    .nav-item > a { display: flex; align-items: center; gap: 4px; }
+    .nav-item > a .arrow { font-size: 9px; transition: transform 0.2s; }
+    .drop { display: none; position: absolute; top: 100%; right: 0; background: #fff; border-radius: 14px; box-shadow: 0 8px 40px rgba(26,26,46,0.13); border: 1px solid var(--border); min-width: 200px; padding: 6px; z-index: 200; }
+    .nav-item:hover .drop { display: block; }
+    .drop a { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 9px; color: var(--dark) !important; font-size: 14px !important; font-weight: 400; white-space: nowrap; transition: background 0.15s; }
+    .drop a:hover { background: var(--cream2); color: var(--coral) !important; }
+    .drop a.soon { opacity:.65; }
+    .drop .soon-badge { margin-right: auto; font-size: 10px; background: var(--cream2); color: var(--muted); padding: 2px 7px; border-radius: 100px; }
+    .drop hr { border: none; border-top: 1px solid var(--border); margin: 4px 0; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--dark); border-radius: 2px; }
+    .nav-drawer { display: none; position: fixed; inset: 62px 0 0 0; background: var(--cream); z-index: 99; flex-direction: column; padding: 32px 24px; gap: 0; border-top: 1px solid var(--border); overflow-y: auto; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { font-size: 18px; font-weight: 700; color: var(--dark); padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .nav-drawer a.active { color: var(--coral); }
+    .nav-drawer .drawer-section { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; padding: 16px 0 6px; border-bottom: none; }
+    .nav-drawer .drawer-item { font-size: 16px; font-weight: 400; padding: 10px 0 10px 12px; }
+
+    /* BREADCRUMB */
+    .breadcrumb { max-width: 1120px; margin: 0 auto; padding: 16px 24px; font-size: 13px; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--coral); }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* HERO */
+    .dest-hero {
+      position: relative; height: 380px; overflow: hidden;
+    }
+    .dest-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+    .dest-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,0.8) 0%, rgba(26,26,46,0.2) 60%, transparent 100%); }
+    .dest-hero-body { position: absolute; bottom: 0; right: 0; left: 0; padding: 32px; max-width: 1120px; margin: 0 auto; }
+    .dest-hero-flag { font-size: 36px; margin-bottom: 8px; }
+    .dest-hero-title { font-size: clamp(36px, 5vw, 56px); font-weight: 900; color: #fff; }
+    .dest-hero-sub { font-size: 16px; color: rgba(255,255,255,0.65); margin-top: 8px; }
+
+    /* ITINERARIES */
+    .section { max-width: 1120px; margin: 0 auto; padding: 64px 24px; }
+    .section-label { font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; }
+
+    .itin-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .itin-card {
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 28px;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .itin-card:not(.itin-soon):hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(26,26,46,0.1); }
+
+    .itin-soon { opacity: 0.6; cursor: default; }
+    .soon-tag {
+      display: inline-block;
+      background: var(--cream2);
+      color: var(--muted);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .itin-type {
+      font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--coral); margin-bottom: 10px;
+    }
+    .itin-title { font-size: 22px; font-weight: 900; color: var(--dark); margin-bottom: 10px; line-height: 1.25; }
+    .itin-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
+    .itin-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .itin-tag {
+      font-size: 12px; background: var(--cream2);
+      color: var(--dark); padding: 4px 12px; border-radius: 100px;
+    }
+
+    .btn-primary {
+      display: inline-block; margin-top: 20px;
+      background: var(--coral); color: #fff;
+      font-size: 14px; font-weight: 700;
+      padding: 10px 22px; border-radius: 100px;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+
+    /* FOOTER */
+    .footer { background: var(--dark); padding: 56px 24px 32px; margin-top: 40px; }
+    .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand { font-size: 20px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+    .footer-brand span { color: var(--coral); }
+    .footer-desc { font-size: 14px; color: rgba(255,255,255,0.4); max-width: 260px; line-height: 1.6; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy { max-width: 1120px; margin: 28px auto 0; font-size: 12px; color: rgba(255,255,255,0.25); line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .itin-grid { grid-template-columns: 1fr; }
+      .dest-hero { height: 280px; }
+      .footer-inner { flex-direction: column; gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">
+      <img src="/assets/icons/logo-icon.svg" alt="Shira Holidays" height="36" style="height:36px;width:36px;border-radius:8px;display:inline-block;vertical-align:middle;margin-left:8px;">
+      <span style="vertical-align:middle;">שירה<span style="color:var(--coral)">הולידייז</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/index.html">ראשי</a>
+      <div class="nav-item">
+        <a href="/index.html#destinations">יעדים <span class="arrow">▾</span></a>
+        <div class="drop">
+          <a href="/destinations/greece.html">🇬🇷 יוון</a>
+          <a href="/destinations/thailand.html">🇹🇭 תאילנד</a>
+          <a href="/destinations/bali.html">🇮🇩 אינדונזיה / באלי</a>
+          <a href="/destinations/puglia.html">🇮🇹 דרום איטליה</a>
+          <a href="/destinations/japan.html">🇯🇵 יפן</a>
+          <a href="/destinations/dubai.html">🇦🇪 דובאי</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="/hotels/greece.html">מלונות <span class="arrow">▾</span></a>
+        <div class="drop">
+          <a href="/hotels/greece.html">🇬🇷 מלונות ביוון</a>
+          <hr>
+          <a href="/hotels/thailand.html" class="soon">🇹🇭 מלונות בתאילנד <span class="soon-badge">בקרוב</span></a>
+          <a href="/hotels/bali.html" class="soon">🇮🇩 מלונות באינדונזיה <span class="soon-badge">בקרוב</span></a>
+          <a href="/hotels/japan.html" class="soon">🇯🇵 מלונות ביפן <span class="soon-badge">בקרוב</span></a>
+          <a href="/hotels/dubai.html" class="soon">🇦🇪 מלונות בדובאי <span class="soon-badge">בקרוב</span></a>
+        </div>
+      </div>
+      <a href="/itineraries/index.html" class="active">מסלולים</a>
+      <a href="/about.html">מי אנחנו</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="תפריט"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="/index.html">ראשי</a>
+  <span class="drawer-section">יעדים</span>
+  <a href="/destinations/greece.html" class="drawer-item">🇬🇷 יוון</a>
+  <a href="/destinations/thailand.html" class="drawer-item">🇹🇭 תאילנד</a>
+  <a href="/destinations/bali.html" class="drawer-item">🇮🇩 אינדונזיה / באלי</a>
+  <a href="/destinations/puglia.html" class="drawer-item">🇮🇹 דרום איטליה</a>
+  <a href="/destinations/japan.html" class="drawer-item">🇯🇵 יפן</a>
+  <a href="/destinations/dubai.html" class="drawer-item">🇦🇪 דובאי</a>
+  <a href="/itineraries/index.html" class="active">מסלולים</a>
+  <a href="/about.html">מי אנחנו</a>
+</div>
+
+<div class="breadcrumb">
+  <a href="/itineraries/index.html">מסלולים</a>
+  <span>›</span>
+  יוון
+</div>
+
+<div class="dest-hero">
+  <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=1400&auto=format&fit=crop&q=85" alt="יוון — סנטוריני">
+  <div class="dest-hero-overlay"></div>
+  <div class="dest-hero-body">
+    <div class="dest-hero-flag">🇬🇷</div>
+    <h1 class="dest-hero-title">יוון</h1>
+    <p class="dest-hero-sub">סנטוריני · מיקונוס · אתונה · קרט</p>
+  </div>
+</div>
+
+<div class="section">
+  <p class="section-label">בחרו מסלול</p>
+  <div class="itin-grid">
+
+    <div class="itin-card itin-soon">
+      <span class="soon-tag">בקרוב</span>
+      <div class="itin-type">זוגות · רומנטי</div>
+      <h2 class="itin-title">7 ימים בסנטוריני ומיקונוס</h2>
+      <p class="itin-desc">מסלול לזוגות שרוצים את הרגע ההוא — שקיעה באויה, קוקטייל על הגג ובוקר שקט עם נוף לקלדרה. כולל כל הלוגיסטיקה.</p>
+      <div class="itin-tags">
+        <span class="itin-tag">7 ימים</span>
+        <span class="itin-tag">זוגות</span>
+        <span class="itin-tag">סנטוריני</span>
+        <span class="itin-tag">מיקונוס</span>
+      </div>
+    </div>
+
+    <div class="itin-card itin-soon">
+      <span class="soon-tag">בקרוב</span>
+      <div class="itin-type">משפחות · עם ילדים</div>
+      <h2 class="itin-title">10 ימים ביוון עם ילדים</h2>
+      <p class="itin-desc">אתונה + אי אחד — מסלול שעובד גם עם ילדים קטנים. מוזיאונים שלא משעממים, חופים עם מים רגועים, ואוכל שהכל אוכלים.</p>
+      <div class="itin-tags">
+        <span class="itin-tag">10 ימים</span>
+        <span class="itin-tag">משפחות</span>
+        <span class="itin-tag">קרט</span>
+        <span class="itin-tag">אתונה</span>
+      </div>
+    </div>
+
+    <div class="itin-card itin-soon">
+      <span class="soon-tag">בקרוב</span>
+      <div class="itin-type">חופי חלומות · בלאק באדג'ט</div>
+      <h2 class="itin-title">5 ימים בסנטוריני — מינימום תקציב, מקסימום חוויה</h2>
+      <p class="itin-desc">כן, אפשר לסנטוריני גם בלי לשלוף הון. הסודות שהמלונות לא רוצים שתדעו — אוכל מקומי, שקיעות ללא תשלום, ושינה חכמה.</p>
+      <div class="itin-tags">
+        <span class="itin-tag">5 ימים</span>
+        <span class="itin-tag">תקציב נמוך</span>
+        <span class="itin-tag">סנטוריני</span>
+      </div>
+    </div>
+
+    <div class="itin-card itin-soon">
+      <span class="soon-tag">בקרוב</span>
+      <div class="itin-type">תרבות + ים · לכולם</div>
+      <h2 class="itin-title">14 ימים ביוון — ממיתוס לים</h2>
+      <p class="itin-desc">אתונה, דלפי, נאופליון וסיום בקרט — המסלול המלא שנותן גם ים וגם תרבות. מושלם למי שרוצה לחזור ולהגיד "ראינו הכל".</p>
+      <div class="itin-tags">
+        <span class="itin-tag">14 ימים</span>
+        <span class="itin-tag">תרבות</span>
+        <span class="itin-tag">אתונה</span>
+        <span class="itin-tag">קרט</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">שירה<span>הולידייז</span></div>
+      <p class="footer-desc">המלצות אמיתיות על יעדים, מלונות ומסלולים — לזוגות ומשפחות שרוצים לטייל בלי ללחץ.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/index.html">ראשי</a>
+      <a href="/itineraries/index.html">מסלולים</a>
+      <a href="/hotels/greece.html">מלונות</a>
+      <a href="/about.html">מי אנחנו</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Shira Holidays | חלק מהקישורים באתר הם קישורי שיווק שותפים (אפיליאציה) דרך Booking.com ואחרים. בהזמנה דרכם אנחנו מקבלים עמלה, ללא עלות נוספת לכם.</p>
+</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navDrawer').classList.toggle('open'));
+  document.querySelectorAll('.nav-item > a').forEach(link => {
+    let timer;
+    const item = link.parentElement;
+    item.addEventListener('mouseenter', () => { clearTimeout(timer); item.classList.add('open'); });
+    item.addEventListener('mouseleave', () => { timer = setTimeout(() => item.classList.remove('open'), 250); });
+  });
+</script>
+</body>
+</html>
