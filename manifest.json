@@ -1,0 +1,11 @@
+{
+  "name": "שירה הולידייז",
+  "short_name": "שירה",
+  "icons": [
+    { "src": "/assets/icons/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icons/favicon-64.png",  "sizes": "64x64",   "type": "image/png" }
+  ],
+  "theme_color": "#E8603A",
+  "background_color": "#FDFAF5",
+  "display": "browser"
+}
