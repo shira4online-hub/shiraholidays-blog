@@ -72,7 +72,7 @@
       transition: background 0.15s;
     }
     .drop a:hover { background: var(--cream2); color: var(--coral) !important; }
-    .drop a.soon { opacity: .55; }
+    .drop a.soon { opacity:.65; }
     .drop .soon-badge {
       margin-right: auto; font-size: 10px;
       background: var(--cream2); color: var(--muted);
@@ -452,7 +452,7 @@
 
     <div class="feed-scroll">
       <div class="feed-item">
-        <div class="dest-card">
+        <a href="/destinations/greece.html" class="dest-card">
           <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&auto=format&fit=crop&q=80" alt="יוון">
           <div class="dest-card-overlay"></div>
           <div class="dest-card-label">
@@ -460,10 +460,10 @@
             <div class="dest-name">יוון</div>
             <div class="dest-cities">סנטוריני, מיקונוס, קריטה</div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="feed-item">
-        <div class="dest-card">
+        <a href="/destinations/thailand.html" class="dest-card">
           <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&auto=format&fit=crop&q=80" alt="תאילנד">
           <div class="dest-card-overlay"></div>
           <div class="dest-card-label">
@@ -471,10 +471,10 @@
             <div class="dest-name">תאילנד</div>
             <div class="dest-cities">פוקט, קוסמוי, בנגקוק</div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="feed-item">
-        <div class="dest-card">
+        <a href="/destinations/japan.html" class="dest-card">
           <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&auto=format&fit=crop&q=80" alt="יפן">
           <div class="dest-card-overlay"></div>
           <div class="dest-card-label">
@@ -482,10 +482,10 @@
             <div class="dest-name">יפן</div>
             <div class="dest-cities">טוקיו, קיוטו, אוסאקה</div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="feed-item">
-        <div class="dest-card">
+        <a href="/destinations/puglia.html" class="dest-card">
           <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&auto=format&fit=crop&q=80" alt="דרום איטליה">
           <div class="dest-card-overlay"></div>
           <div class="dest-card-label">
@@ -493,10 +493,10 @@
             <div class="dest-name">דרום איטליה</div>
             <div class="dest-cities">פוליה, אמלפי, סיציליה</div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="feed-item">
-        <div class="dest-card">
+        <a href="/destinations/bali.html" class="dest-card">
           <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&auto=format&fit=crop&q=80" alt="אינדונזיה">
           <div class="dest-card-overlay"></div>
           <div class="dest-card-label">
@@ -504,10 +504,10 @@
             <div class="dest-name">אינדונזיה</div>
             <div class="dest-cities">באלי, לומבוק, ג׳אווה</div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="feed-item">
-        <div class="dest-card">
+        <a href="/destinations/dubai.html" class="dest-card">
           <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&auto=format&fit=crop&q=80" alt="דובאי">
           <div class="dest-card-overlay"></div>
           <div class="dest-card-label">
@@ -515,7 +515,7 @@
             <div class="dest-name">דובאי</div>
             <div class="dest-cities">עיר, מדבר, חופים</div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -808,27 +808,5 @@
   });
 </script>
 <script src="assets/js/site.js"></script>
-
-<script>
-(function(){
-  var items = document.querySelectorAll('.nav-item');
-  items.forEach(function(item){
-    var trigger = item.querySelector('a');
-    if (!trigger) return;
-    trigger.addEventListener('click', function(e){
-      if (!item.querySelector('.drop')) return;
-      e.preventDefault();
-      var isOpen = item.classList.contains('open');
-      items.forEach(function(i){ i.classList.remove('open'); });
-      if (!isOpen) item.classList.add('open');
-    });
-  });
-  document.addEventListener('click', function(e){
-    if (!e.target.closest || !e.target.closest('.nav-item')){
-      items.forEach(function(i){ i.classList.remove('open'); });
-    }
-  });
-})();
-</script>
 </body>
 </html>
