@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background -->
+  <rect width="200" height="200" rx="44" fill="#E8603A"/>
+
+  <!-- Sun circle -->
+  <circle cx="100" cy="82" r="30" fill="white"/>
+
+  <!-- Sun rays -->
+  <line x1="100" y1="38" x2="100" y2="28" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <line x1="100" y1="136" x2="100" y2="126" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <line x1="56" y1="82" x2="46" y2="82" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <line x1="154" y1="82" x2="144" y2="82" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <line x1="69" y1="51" x2="62" y2="44" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <line x1="138" y1="120" x2="131" y2="113" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <line x1="131" y1="51" x2="138" y2="44" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <line x1="62" y1="120" x2="69" y2="113" stroke="white" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Wave -->
+  <path d="M28 152 Q46 132 64 152 Q82 172 100 152 Q118 132 136 152 Q154 172 172 152"
+        stroke="white" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
