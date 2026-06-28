@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>מלונות ביפן | Shira Holidays</title>
   <meta name="description" content="המלצות מלונות ביפן — בקרוב.">
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
     .nav-item{position:relative}.nav-item>a{display:flex;align-items:center;gap:4px;cursor:pointer}
     .nav-item>a .arrow{font-size:9px;transition:transform .2s}.nav-item:hover>a .arrow,.nav-item.open>a .arrow{transform:rotate(180deg)}
     .drop{display:none;position:absolute;top:100%;right:0;background:#fff;border-radius:14px;box-shadow:0 8px 40px rgba(26,26,46,.13);border:1px solid var(--border);min-width:200px;padding:6px;z-index:200}
-    .nav-item:hover .drop,.nav-item.open .drop{display:block}
+    .nav-item:hover .drop, .nav-item.open .drop { display: block; }
     .drop a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;color:var(--dark)!important;font-size:14px!important;white-space:nowrap;transition:background .15s}
     .drop a:hover{background:var(--cream2)}.drop a.soon{opacity:.55}
     .drop .soon-badge{margin-right:auto;font-size:10px;background:var(--cream2);color:var(--muted);padding:2px 7px;border-radius:100px}
@@ -122,25 +123,25 @@
   <div class="footer-links"><a href="/index.html">ראשי</a><a href="/about.html">מי אנחנו</a><a href="/privacy.html">פרטיות</a></div>
   <p class="footer-copy">© 2026 Shira Holidays</p>
 </div></footer>
+<script src="/assets/js/site.js"></script>
 <script>
 (function(){
-  document.getElementById("hamburger").addEventListener("click",function(){document.getElementById("navDrawer").classList.toggle("open")});
-  var items=document.querySelectorAll(".nav-item");
-  items.forEach(function(item){
-    item.querySelector("a").addEventListener("click",function(e){
-      if(!item.querySelector(".drop"))return;
-      e.preventDefault();
-      var open=item.classList.contains("open");
-      items.forEach(function(i){i.classList.remove("open")});
-      if(!open)item.classList.add("open");
+  document.querySelectorAll('.nav-item').forEach(function(item){
+    var timer;
+    item.addEventListener('mouseenter', function(){
+      clearTimeout(timer);
+      item.classList.add('open');
+    });
+    item.addEventListener('mouseleave', function(){
+      timer = setTimeout(function(){ item.classList.remove('open'); }, 200);
     });
   });
-  document.addEventListener("click",function(e){
-    if(!e.target.closest||!e.target.closest(".nav-item"))
-      items.forEach(function(i){i.classList.remove("open")});
+  // click outside closes all
+  document.addEventListener('click', function(e){
+    if (!e.target.closest('.nav-item'))
+      document.querySelectorAll('.nav-item').forEach(function(i){ i.classList.remove('open'); });
   });
 })();
 </script>
-<script src="/assets/js/site.js"></script>
 </body>
 </html>
