@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מלונות יוקרה בסנטוריני לזוגות | Shira Holidays</title>
+  <meta name="description" content="המלצות אמיתיות על מלונות היוקרה הטובים בסנטוריני לזוגות — עם בריכות פרטיות, נוף לקלדרה וקישורים ישירים להזמנה.">
+  <meta property="og:title" content="מלונות יוקרה בסנטוריני לזוגות | Shira Holidays">
+  <meta property="og:description" content="המלצות אמיתיות על מלונות היוקרה הטובים בסנטוריני לזוגות.">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Heebo', sans-serif; background: #FDFAF5; color: #1A1A2E; }
+    a { text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    :root { --coral: #E8603A; --dark: #1A1A2E; --cream: #FDFAF5; --cream2: #F5F0E8; --muted: rgba(26,26,46,0.5); --border: rgba(26,26,46,0.08); --gold: #C9A84C; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(253,250,245,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 62px; }
+    .nav-logo { font-size: 20px; font-weight: 900; color: var(--dark); }
+    .nav-logo span { color: var(--coral); }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links > a, .nav-item > a { color: var(--muted); font-size: 15px; padding: 6px 12px; border-radius: 8px; transition: all .2s; }
+    .nav-links > a:hover, .nav-item > a:hover { color: var(--dark); background: var(--cream2); }
+    .nav-item { position: relative; }
+    .nav-item > a { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+    .nav-item > a .arrow { font-size: 9px; transition: transform .2s; }
+    .nav-item.open > a .arrow { transform: rotate(180deg); }
+    .drop { display: none; position: absolute; top: 100%; right: 0; background: #fff; border-radius: 14px; box-shadow: 0 8px 40px rgba(26,26,46,.13); border: 1px solid var(--border); min-width: 200px; padding: 6px; z-index: 200; }
+    .nav-item:hover .drop, .nav-item.open .drop { display: block; }
+    .drop a { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 9px; color: var(--dark) !important; font-size: 14px !important; white-space: nowrap; transition: background .15s; }
+    .drop a:hover { background: var(--cream2); }
+    .drop a.soon { opacity: .6; }
+    .drop .soon-badge { margin-right: auto; font-size: 10px; background: var(--cream2); color: var(--muted); padding: 2px 7px; border-radius: 100px; }
+    .drop hr { border: none; border-top: 1px solid var(--border); margin: 4px 0; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--dark); border-radius: 2px; }
+    .nav-drawer { display: none; position: fixed; inset: 62px 0 0 0; background: var(--cream); z-index: 99; flex-direction: column; padding: 32px 24px; border-top: 1px solid var(--border); overflow-y: auto; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { font-size: 18px; font-weight: 700; color: var(--dark); padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .nav-drawer .drawer-section { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; padding: 16px 0 6px; border-bottom: none; }
+    .nav-drawer .drawer-item { font-size: 16px; font-weight: 400; padding: 10px 0 10px 12px; }
+
+    /* BREADCRUMB */
+    .breadcrumb { max-width: 1120px; margin: 0 auto; padding: 16px 24px 0; display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+    .breadcrumb a { color: var(--muted); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--coral); }
+    .breadcrumb .sep { opacity: .4; }
+
+    /* HERO */
+    .hero { position: relative; height: 54vh; min-height: 340px; display: flex; align-items: flex-end; overflow: hidden; margin-top: 16px; }
+    .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.9) 0%, rgba(26,26,46,.2) 55%, transparent 100%); }
+    .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px 44px; }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .hero-title { font-size: clamp(32px, 5vw, 64px); font-weight: 900; color: #fff; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 12px; }
+    .hero-sub { color: rgba(255,255,255,.6); font-size: 16px; font-weight: 300; max-width: 500px; line-height: 1.6; }
+
+    /* TABS */
+    .tabs-wrapper { max-width: 1120px; margin: 0 auto; padding: 32px 24px 0; }
+    .tabs { display: flex; gap: 8px; border-bottom: 2px solid var(--border); }
+    .tab { padding: 10px 20px; font-size: 15px; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all .2s; white-space: nowrap; }
+    .tab.active { color: var(--coral); border-bottom-color: var(--coral); }
+    .tab.soon-tab { opacity: .5; cursor: default; }
+    .tab .tab-badge { font-size: 10px; font-weight: 700; background: var(--cream2); color: var(--muted); padding: 2px 7px; border-radius: 100px; margin-right: 6px; }
+
+    /* CONTENT */
+    .page-inner { max-width: 1120px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    /* INTRO TEXT */
+    .intro-text { font-size: 17px; font-weight: 300; color: var(--muted); line-height: 1.75; max-width: 680px; margin-bottom: 48px; border-right: 3px solid var(--coral); padding-right: 20px; }
+
+    /* HOTEL CARDS */
+    .hotels-list { display: flex; flex-direction: column; gap: 32px; }
+    .hotel-card { background: #fff; border: 1px solid var(--border); border-radius: 24px; overflow: hidden; display: grid; grid-template-columns: 340px 1fr; transition: box-shadow .25s; }
+    .hotel-card:hover { box-shadow: 0 12px 48px rgba(26,26,46,.1); }
+    .hotel-img { position: relative; overflow: hidden; height: 100%; min-height: 260px; }
+    .hotel-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .hotel-card:hover .hotel-img img { transform: scale(1.04); }
+    .hotel-badge { position: absolute; top: 16px; right: 16px; background: rgba(26,26,46,.75); backdrop-filter: blur(8px); color: #fff; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 100px; letter-spacing: .5px; }
+    .hotel-badge.gold { background: var(--gold); color: #fff; }
+    .hotel-body { padding: 32px 32px 28px; display: flex; flex-direction: column; }
+    .hotel-location { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 8px; }
+    .hotel-name { font-size: 24px; font-weight: 900; color: var(--dark); margin-bottom: 12px; line-height: 1.15; }
+    .hotel-desc { font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.7; margin-bottom: 20px; }
+    .hotel-perks { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .perk { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; color: var(--dark); background: var(--cream2); padding: 5px 12px; border-radius: 100px; }
+    .hotel-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .hotel-price { font-size: 13px; color: var(--muted); font-weight: 300; }
+    .hotel-price strong { font-size: 18px; font-weight: 900; color: var(--dark); }
+    .btn-book { display: inline-flex; align-items: center; gap: 8px; background: #003580; color: #fff; font-size: 14px; font-weight: 700; padding: 12px 22px; border-radius: 12px; transition: background .2s; white-space: nowrap; }
+    .btn-book:hover { background: #00266b; }
+    .btn-book .booking-logo { font-size: 11px; font-weight: 400; opacity: .75; }
+
+    /* COMING SOON SECTIONS */
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
+    .section-title { font-size: 26px; font-weight: 900; color: var(--dark); margin-bottom: 8px; }
+    .section-sub { font-size: 15px; color: var(--muted); font-weight: 300; margin-bottom: 32px; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+    .card-soon { background: var(--cream2); border: 1.5px dashed rgba(26,26,46,.12); border-radius: 20px; }
+    .card-soon .card-body { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px; text-align: center; padding: 28px 20px; }
+    .card-soon .soon-icon { font-size: 32px; margin-bottom: 12px; }
+    .card-soon .card-title { font-size: 15px; font-weight: 700; color: var(--muted); line-height: 1.4; margin-bottom: 10px; }
+    .card-soon-badge { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); background: rgba(26,26,46,.06); padding: 4px 14px; border-radius: 100px; }
+
+    /* FOOTER */
+    footer { background: var(--dark); color: #fff; padding: 48px 24px; }
+    .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-size: 18px; font-weight: 900; }
+    .footer-logo span { color: var(--coral); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: rgba(255,255,255,.5); font-size: 13px; }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy { color: rgba(255,255,255,.25); font-size: 12px; width: 100%; text-align: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.08); }
+
+    @media (max-width: 900px) {
+      .hotel-card { grid-template-columns: 1fr; }
+      .hotel-img { min-height: 220px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .tabs { overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">שירה<span>הולידייז</span></a>
+    <div class="nav-links">
+      <a href="/index.html">ראשי</a>
+      <div class="nav-item">
+        <a href="#">יעדים <span class="arrow">▾</span></a>
+        <div class="drop">
+          <a href="/destinations/greece.html">🇬🇷 יוון</a>
+          <a href="/destinations/thailand.html">🇹🇭 תאילנד</a>
+          <a href="/destinations/bali.html">🇮🇩 אינדונזיה / באלי</a>
+          <a href="/destinations/puglia.html">🇮🇹 דרום איטליה</a>
+          <a href="/destinations/japan.html">🇯🇵 יפן</a>
+          <a href="/destinations/dubai.html">🇦🇪 דובאי</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" style="color: var(--coral) !important; font-weight: 600;">מלונות <span class="arrow">▾</span></a>
+        <div class="drop">
+          <a href="/hotels/greece.html" style="font-weight: 700;">🇬🇷 מלונות ביוון</a>
+          <hr>
+          <a href="/hotels/thailand.html" class="soon">🇹🇭 מלונות בתאילנד <span class="soon-badge">בקרוב</span></a>
+          <a href="/hotels/bali.html" class="soon">🇮🇩 מלונות באינדונזיה <span class="soon-badge">בקרוב</span></a>
+          <a href="/hotels/japan.html" class="soon">🇯🇵 מלונות ביפן <span class="soon-badge">בקרוב</span></a>
+          <a href="/hotels/dubai.html" class="soon">🇦🇪 מלונות בדובאי <span class="soon-badge">בקרוב</span></a>
+        </div>
+      </div>
+      <a href="/about.html">מי אנחנו</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="תפריט">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="/index.html">ראשי</a>
+  <span class="drawer-section">יעדים</span>
+  <a href="/destinations/greece.html" class="drawer-item">🇬🇷 יוון</a>
+  <a href="/destinations/thailand.html" class="drawer-item">🇹🇭 תאילנד</a>
+  <a href="/destinations/bali.html" class="drawer-item">🇮🇩 אינדונזיה / באלי</a>
+  <a href="/destinations/puglia.html" class="drawer-item">🇮🇹 דרום איטליה</a>
+  <a href="/destinations/japan.html" class="drawer-item">🇯🇵 יפן</a>
+  <a href="/destinations/dubai.html" class="drawer-item">🇦🇪 דובאי</a>
+  <span class="drawer-section">מלונות</span>
+  <a href="/hotels/greece.html" class="drawer-item">🇬🇷 מלונות ביוון</a>
+  <a href="/hotels/santorini.html" class="drawer-item" style="color:var(--coral);">  ↳ סנטוריני</a>
+  <a href="/hotels/thailand.html" class="drawer-item">🇹🇭 מלונות בתאילנד</a>
+  <a href="/about.html">מי אנחנו</a>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="/index.html">ראשי</a>
+  <span class="sep">›</span>
+  <a href="/hotels/greece.html">מלונות ביוון</a>
+  <span class="sep">›</span>
+  <span>סנטוריני</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1400&q=80" alt="מלונות יוקרה בסנטוריני">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">✦ מלונות יוקרה לזוגות</p>
+    <h1 class="hero-title">סנטוריני —<br>איפה לישון ברמה אחרת</h1>
+    <p class="hero-sub">5 מלונות שבאמת שווים את הכסף — עם בריכות פרטיות, נוף לקלדרה, ושירות שמרגיש שנבנה בשבילכם.</p>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <div class="tab active">💎 יוקרה לזוגות</div>
+    <div class="tab soon-tab">💰 יוקרה בלי לקרוע את הכיס <span class="tab-badge">בקרוב</span></div>
+    <div class="tab soon-tab">👨‍👩‍👧 משפחות <span class="tab-badge">בקרוב</span></div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="page-inner">
+
+  <p class="intro-text">
+    סנטוריני היא אחד מהיעדים הרומנטיים ביותר בעולם — אבל לא כל המלונות יוצרים את הרגע הזה. כאן תמצאו רק מה שעובד באמת לזוגות: מלונות עם בריכה פרטית, שקט, שירות שמרגיש אישי, ונוף לקלדרה שמשאיר אתכם נאלמי דום.
+  </p>
+
+  <div class="hotels-list">
+
+    <!-- 1. CANAVES OIA EPITOME -->
+    <div class="hotel-card">
+      <div class="hotel-img">
+        <img src="https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=700&q=80" alt="Canaves Oia Epitome">
+        <span class="hotel-badge gold">✦ המומלץ שלנו</span>
+      </div>
+      <div class="hotel-body">
+        <p class="hotel-location">אויה · Oia</p>
+        <h2 class="hotel-name">Canaves Oia Epitome</h2>
+        <p class="hotel-desc">
+          המלון הכי מדובר בסנטוריני — ולא בכדי. 20 סוויטות בלבד, כל אחת עם בריכה פרטית ונוף ישיר לקלדרה. שירות דיסקרטי שמרגיש כמו וילה פרטית. פלוס נדיר בסנטוריני: גישה לחוף.
+        </p>
+        <div class="hotel-perks">
+          <span class="perk">🏊 בריכה פרטית לכל סוויטה</span>
+          <span class="perk">🌋 נוף קלדרה מלא</span>
+          <span class="perk">🏖️ גישה לחוף</span>
+          <span class="perk">🍽️ מסעדה 5 כוכבים</span>
+          <span class="perk">👫 מבוגרים בלבד</span>
+        </div>
+        <div class="hotel-footer">
+          <div class="hotel-price">מ- <strong>€900</strong> ללילה</div>
+          <a href="https://www.booking.com/hotel/gr/canaves-oia-epitome.html" target="_blank" rel="noopener" class="btn-book">
+            להזמנה ב-Booking.com ←
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. ANDRONIS LUXURY SUITES -->
+    <div class="hotel-card">
+      <div class="hotel-img">
+        <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=700&q=80" alt="Andronis Luxury Suites">
+        <span class="hotel-badge">👫 מבוגרים בלבד</span>
+      </div>
+      <div class="hotel-body">
+        <p class="hotel-location">אויה · Oia</p>
+        <h2 class="hotel-name">Andronis Luxury Suites</h2>
+        <p class="hotel-desc">
+          39 סוויטות על שפת המצוק, כולן עם בריכה או ג'קוזי פרטיים ונוף ישיר לקלדרה. הספא של המלון מציע חדרי טיפולים לזוגות. אחד המקומות האינטימיים ביותר באויה — מרגיש כמו מקלט מוסתר.
+        </p>
+        <div class="hotel-perks">
+          <span class="perk">🏊 בריכה/ג'קוזי פרטיים</span>
+          <span class="perk">💆 ספא לזוגות</span>
+          <span class="perk">🌋 נוף קלדרה</span>
+          <span class="perk">🌅 אחד הנופים הטובים</span>
+          <span class="perk">👫 מבוגרים בלבד</span>
+        </div>
+        <div class="hotel-footer">
+          <div class="hotel-price">מ- <strong>€650</strong> ללילה</div>
+          <a href="https://www.booking.com/hotel/gr/andronis-luxury-suites.html" target="_blank" rel="noopener" class="btn-book">
+            להזמנה ב-Booking.com ←
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. KATIKIES SANTORINI -->
+    <div class="hotel-card">
+      <div class="hotel-img">
+        <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?w=700&q=80" alt="Katikies Santorini">
+        <span class="hotel-badge">🏆 אייקוני</span>
+      </div>
+      <div class="hotel-body">
+        <p class="hotel-location">אויה · Oia</p>
+        <h2 class="hotel-name">Katikies Santorini</h2>
+        <p class="hotel-desc">
+          מהמלונות הכי מצולמים בסנטוריני — שלוש בריכות infinity מדורגות לתוך הקלדרה. עיצוב כיכרי-קיקלאדי טהור: לבן, כחול, ואבן. בוקר הבוקר שלהם כנגד הנוף הוא חוויה בפני עצמה.
+        </p>
+        <div class="hotel-perks">
+          <span class="perk">🏊 3 בריכות infinity</span>
+          <span class="perk">🌋 נוף קלדרה ישיר</span>
+          <span class="perk">🍳 ארוחת בוקר מול הנוף</span>
+          <span class="perk">🏛️ עיצוב קיקלאדי אייקוני</span>
+        </div>
+        <div class="hotel-footer">
+          <div class="hotel-price">מ- <strong>€550</strong> ללילה</div>
+          <a href="https://www.booking.com/hotel/gr/katikies.html" target="_blank" rel="noopener" class="btn-book">
+            להזמנה ב-Booking.com ←
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. GRACE HOTEL (IMEROVIGLI) -->
+    <div class="hotel-card">
+      <div class="hotel-img">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=80" alt="Grace Hotel Imerovigli">
+        <span class="hotel-badge">🌅 השקיעות הכי טובות</span>
+      </div>
+      <div class="hotel-body">
+        <p class="hotel-location">אימרוביגלי · Imerovigli</p>
+        <h2 class="hotel-name">Grace Hotel Santorini</h2>
+        <p class="hotel-desc">
+          לאלה שרוצים להימלט מהרגל של אויה — אימרוביגלי היא הכפר השקט והגבוה ביותר, עם הנוף הפתוח ביותר לקלדרה. Grace מציע מינימליזם אלגנטי, בריכת infinity ענקית ורמת שירות שמתחרה בטובים.
+        </p>
+        <div class="hotel-perks">
+          <span class="perk">🏊 בריכת infinity ענקית</span>
+          <span class="perk">🤫 אווירה שקטה ואינטימית</span>
+          <span class="perk">🌋 נוף קלדרה פתוח</span>
+          <span class="perk">🍷 בר שקיעה מצוין</span>
+        </div>
+        <div class="hotel-footer">
+          <div class="hotel-price">מ- <strong>€480</strong> ללילה</div>
+          <a href="https://www.booking.com/hotel/gr/grace-santorini.html" target="_blank" rel="noopener" class="btn-book">
+            להזמנה ב-Booking.com ←
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. CANAVES OIA SUITES -->
+    <div class="hotel-card">
+      <div class="hotel-img">
+        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=700&q=80" alt="Canaves Oia Suites">
+        <span class="hotel-badge">🏠 בוטיק</span>
+      </div>
+      <div class="hotel-body">
+        <p class="hotel-location">אויה · Oia</p>
+        <h2 class="hotel-name">Canaves Oia Suites</h2>
+        <p class="hotel-desc">
+          האחות הקטנה והאינטימית של Canaves Epitome — פחות חדרים, שירות אישי יותר, מחיר נגיש יותר. אחת הסקירות הכי עקביות ב-Booking: אורחים חוזרים שוב ושוב. הטרסות הפרטיות עם נוף לקלדרה הן הכוכב.
+        </p>
+        <div class="hotel-perks">
+          <span class="perk">🌋 טרסות פרטיות קלדרה</span>
+          <span class="perk">🏊 בריכה שיתופית</span>
+          <span class="perk">⭐ שירות אישי</span>
+          <span class="perk">💑 אידיאלי לזוגות</span>
+        </div>
+        <div class="hotel-footer">
+          <div class="hotel-price">מ- <strong>€380</strong> ללילה</div>
+          <a href="https://www.booking.com/hotel/gr/canaves-oia-suites.html" target="_blank" rel="noopener" class="btn-book">
+            להזמנה ב-Booking.com ←
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COMING SOON: יוקרה בלי לקרוע -->
+  <hr class="section-divider">
+  <p class="section-eyebrow">בקרוב</p>
+  <h2 class="section-title">💰 יוקרה בלי לקרוע את הכיס</h2>
+  <p class="section-sub">סנטוריני גם בלי €900 ללילה — המלונות שמציעים את הנוף והחוויה, בתמחור שפוי יותר.</p>
+  <div class="cards-grid">
+    <div class="card-soon">
+      <div class="card-body">
+        <div class="soon-icon">🌅</div>
+        <h3 class="card-title">Astra Suites<br>מ-€200 ללילה</h3>
+        <span class="card-soon-badge">בקרוב</span>
+      </div>
+    </div>
+    <div class="card-soon">
+      <div class="card-body">
+        <div class="soon-icon">🏠</div>
+        <h3 class="card-title">Mystique Santorini<br>ספא + קלדרה</h3>
+        <span class="card-soon-badge">בקרוב</span>
+      </div>
+    </div>
+    <div class="card-soon">
+      <div class="card-body">
+        <div class="soon-icon">💎</div>
+        <h3 class="card-title">Homeric Poems<br>בוטיק קטן ושקט</h3>
+        <span class="card-soon-badge">בקרוב</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMING SOON: משפחות -->
+  <hr class="section-divider">
+  <p class="section-eyebrow">בקרוב</p>
+  <h2 class="section-title">👨‍👩‍👧 מלונות למשפחות בסנטוריני</h2>
+  <p class="section-sub">כן, אפשר להגיע לסנטוריני עם ילדים — אבל צריך לדעת לאן. המדריך המשפחתי בדרך.</p>
+  <div class="cards-grid">
+    <div class="card-soon">
+      <div class="card-body">
+        <div class="soon-icon">👨‍👩‍👧</div>
+        <h3 class="card-title">מלונות ידידותיים לילדים<br>סנטוריני</h3>
+        <span class="card-soon-badge">בקרוב</span>
+      </div>
+    </div>
+    <div class="card-soon">
+      <div class="card-body">
+        <div class="soon-icon">🏖️</div>
+        <h3 class="card-title">מלונות ליד החוף<br>עם ילדים</h3>
+        <span class="card-soon-badge">בקרוב</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">שירה<span>הולידייז</span></div>
+    <div class="footer-links">
+      <a href="/index.html">ראשי</a>
+      <a href="/hotels/greece.html">מלונות ביוון</a>
+      <a href="/about.html">מי אנחנו</a>
+      <a href="/privacy.html">פרטיות</a>
+    </div>
+    <p class="footer-copy">© 2026 Shira Holidays | הקישורים למלונות הם קישורי אפיליאציה דרך Booking.com</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('navDrawer').classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-item').forEach(function(item) {
+    var timer;
+    item.addEventListener('mouseenter', function() {
+      clearTimeout(timer);
+      item.classList.add('open');
+    });
+    item.addEventListener('mouseleave', function() {
+      timer = setTimeout(function() { item.classList.remove('open'); }, 250);
+    });
+  });
+</script>
+<script src="/assets/js/site.js"></script>
+</body>
+</html>

@@ -17,9 +17,9 @@
     .nav-item{position:relative}.nav-item>a{display:flex;align-items:center;gap:4px;cursor:pointer}
     .nav-item>a .arrow{font-size:9px;transition:transform .2s}.nav-item:hover>a .arrow{transform:rotate(180deg)}
     .drop{display:none;position:absolute;top:100%;padding-top:6px;right:0;background:#fff;border-radius:14px;box-shadow:0 8px 40px rgba(26,26,46,.13);border:1px solid var(--border);min-width:200px;padding:6px;z-index:200}
-    .nav-item.open .drop{display:block}
+    .nav-item:hover .drop, .nav-item.open .drop { display: block; }
     .drop a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;color:var(--dark)!important;font-size:14px!important;white-space:nowrap;transition:background .15s}
-    .drop a:hover{background:var(--cream2)}.drop a.soon{opacity:.38;pointer-events:none}
+    .drop a:hover{background:var(--cream2)}.drop a.soon{opacity:.65;}
     .drop .soon-badge{margin-right:auto;font-size:10px;background:var(--cream2);color:var(--muted);padding:2px 7px;border-radius:100px}
     .drop hr{border:none;border-top:1px solid var(--border);margin:4px 0}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
@@ -128,7 +128,7 @@
 
   <div class="locations-grid">
 
-    <a href="/articles/article-santorini-kids.html" class="loc-card">
+    <a href="/hotels/santorini.html" class="loc-card">
       <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80" alt="סנטוריני">
       <div class="loc-card-overlay"></div>
       <div class="loc-card-body">
@@ -220,22 +220,20 @@
 <script src="/assets/js/site.js"></script>
 <script>
 (function(){
-  var items = document.querySelectorAll('.nav-item');
-  items.forEach(function(item){
-    var trigger = item.querySelector('a');
-    if (!trigger) return;
-    trigger.addEventListener('click', function(e){
-      if (!item.querySelector('.drop')) return;
-      e.preventDefault();
-      var isOpen = item.classList.contains('open');
-      items.forEach(function(i){ i.classList.remove('open'); });
-      if (!isOpen) item.classList.add('open');
+  document.querySelectorAll('.nav-item').forEach(function(item){
+    var timer;
+    item.addEventListener('mouseenter', function(){
+      clearTimeout(timer);
+      item.classList.add('open');
+    });
+    item.addEventListener('mouseleave', function(){
+      timer = setTimeout(function(){ item.classList.remove('open'); }, 200);
     });
   });
+  // click outside closes all
   document.addEventListener('click', function(e){
-    if (!e.target.closest || !e.target.closest('.nav-item')){
-      items.forEach(function(i){ i.classList.remove('open'); });
-    }
+    if (!e.target.closest('.nav-item'))
+      document.querySelectorAll('.nav-item').forEach(function(i){ i.classList.remove('open'); });
   });
 })();
 </script>
